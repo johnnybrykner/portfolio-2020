@@ -1,0 +1,31 @@
+$primary-color: #b430f3;
+$secondary-color: #cb37c1;
+$tertiary-color: #ff24a4;
+$quaternary-color: #abe900;
+$quinary-color: #45e4bc;
+
+@keyframes heartbeat {
+  0% { transform: scale(1); }
+  25% { transform: scale(2); }
+  100% { transform: scale(1); }
+}
+
+@keyframes backgroundshift {
+  0% { background-color: $primary-color; }
+  20% { background-color: $secondary-color; }
+  40% { background-color: $tertiary-color; }
+  60% { background-color: $quaternary-color; }
+  80% { background-color: $quinary-color; }
+  100% { background-color: $primary-color; }
+}
+
+@keyframes backgroundheart {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(25);
+    opacity: 0;
+  }
+}

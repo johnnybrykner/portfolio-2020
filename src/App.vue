@@ -1,16 +1,28 @@
 <template>
   <div id="app">
-    <the-heart />
+    <landing-screen class="screen" :style="{ height: minHeight + 'px' }" />
   </div>
 </template>
 
 <script>
-import TheHeart from "@/components/TheHeart.vue";
+import LandingScreen from "@/components/LandingScreen/LandingScreen.vue";
 
 export default {
   name: "app",
   components: {
-    TheHeart
+    LandingScreen
+  },
+  computed: {
+    minHeight: () => {
+      return window.innerHeight;
+    }
   }
 };
 </script>
+
+<style lang="scss">
+body {
+  overflow: hidden;
+  margin: 0;
+}
+</style>
