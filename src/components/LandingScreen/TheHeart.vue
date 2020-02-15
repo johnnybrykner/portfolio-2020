@@ -28,8 +28,8 @@ export default {
   }
 
   &.heart--background {
-    position: absolute;
-    bottom: calc(50% - 45px);
+    position: relative;
+    bottom: 50%;
     animation: backgroundheart 3s infinite;
 
     &::before,
@@ -46,7 +46,7 @@ export default {
     top: 0;
     width: 50px;
     height: 80px;
-    background: red;
+    background: $heart-color;
     border-radius: 50px 50px 0 0;
     transform: rotate(-45deg);
     transform-origin: 0 100%;
