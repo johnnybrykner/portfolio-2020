@@ -6,6 +6,10 @@ $quinary-color: #ff3030;
 
 $heart-color: #79bd9a;
 
+h1 {
+  font-family: "sintony", sans-serif;
+}
+
 @keyframes heartbeat {
   0% { transform: scale(1); }
   25% { transform: scale(2); }

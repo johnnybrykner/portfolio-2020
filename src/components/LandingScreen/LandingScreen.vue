@@ -2,9 +2,7 @@
   <section class="landing">
     <h1>My name is Vít Brykner and I</h1>
     <the-heart withBackground class="landing__heart" />
-    <transition name="fade">
-      <h1>{{ loves[currentLove] }}</h1>
-    </transition>
+    <h1>{{ loves[currentLove] }}</h1>
   </section>
 </template>
 
@@ -47,19 +45,7 @@ export default {
   align-items: center;
   background-color: $primary-color;
   animation: backgroundshift 15s 3s infinite;
-
-  h1 {
-    font-family: "sintony", sans-serif;
-    font-size: 1.5rem;
-
-    &.fade-enter-active,
-    .fade-leave-active {
-      transition: opacity 0.5s;
-    }
-    &.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-      opacity: 0;
-    }
-  }
+  overflow: hidden;
 
   .landing__heart {
     align-self: center;

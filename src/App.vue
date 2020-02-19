@@ -1,28 +1,35 @@
 <template>
   <div id="app">
-    <landing-screen class="screen" :style="{ height: minHeight + 'px' }" />
+    <the-nav :minScreenHeight="minScreenHeight" />
+    <landing-screen
+      id="home"
+      class="screen"
+      :style="{ height: minScreenHeight + 'px' }"
+    />
+    <div id="test" class="screen" :style="{ height: '2000px' }"></div>
+    <div id="test2" class="screen" :style="{ height: '3000px' }"></div>
+    <div id="test3" class="screen" :style="{ height: '4000px' }"></div>
   </div>
 </template>
 
 <script>
 import LandingScreen from "@/components/LandingScreen/LandingScreen.vue";
+import TheNav from "@/components/TheNav.vue";
 
 export default {
   name: "app",
   components: {
-    LandingScreen
+    LandingScreen,
+    TheNav
   },
   computed: {
-    minHeight: () => {
-      return window.innerHeight;
-    }
+    minScreenHeight: () => window.innerHeight
   }
 };
 </script>
 
 <style lang="scss">
 body {
-  overflow: hidden;
   margin: 0;
 }
 </style>
