@@ -43,8 +43,6 @@ export default {
   flex-flow: column nowrap;
   justify-content: space-evenly;
   align-items: center;
-  background-color: $primary-color;
-  animation: backgroundshift 15s 3s infinite;
   overflow: hidden;
 
   .landing__heart {

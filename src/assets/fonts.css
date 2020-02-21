@@ -1,13 +1,13 @@
 @font-face {
   font-family: "sintony";
-  src: url('../assets/Sintony-Bold.ttf') format('truetype');
+  src: url('../assets/sintony-bold-webfont.woff2') format('woff2');
   font-display: swap;
   font-weight: 700;
 }
 
 @font-face {
   font-family: "opensans";
-  src: url('../assets/OpenSans-Regular.ttf') format('truetype');
+  src: url('../assets/opensans-regular-webfont.woff2') format('woff2');
   font-display: swap;
   font-weight: 400;
 }
