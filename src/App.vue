@@ -1,20 +1,29 @@
 <template>
   <div id="app">
-    <the-nav :minScreenHeight="minScreenHeight" />
+    <the-nav
+      :minScreenHeight="minScreenHeight"
+      @screen-change="setCurrentScreen($event)"
+    />
     <landing-screen
       id="home"
       class="screen"
-      :style="{ height: minScreenHeight + 'px' }"
+      :style="{ minHeight: minScreenHeight + 'px' }"
     />
-    <projects-screen id="projects" class="screen" />
+    <projects-screen
+      id="projects"
+      class="screen"
+      :currentScreen="currentScreen"
+      :minScreenHeight="minScreenHeight"
+    />
     <div id="test2" class="screen" :style="{ height: '3000px' }"></div>
-    <div id="test3" class="screen" :style="{ height: '4000px' }"></div>
+    <contact-screen id="contact" class="screen" />
   </div>
 </template>
 
 <script>
 import LandingScreen from "@/components/LandingScreen/LandingScreen.vue";
 import ProjectsScreen from "@/components/ProjectsScreen/ProjectsScreen.vue";
+import ContactScreen from "@/components/ContactScreen/ContactScreen.vue";
 import TheNav from "@/components/TheNav.vue";
 
 export default {
@@ -22,10 +31,21 @@ export default {
   components: {
     LandingScreen,
     ProjectsScreen,
+    ContactScreen,
     TheNav
+  },
+  data: function() {
+    return {
+      currentScreen: 0
+    };
   },
   computed: {
     minScreenHeight: () => window.innerHeight
+  },
+  methods: {
+    setCurrentScreen(newValue) {
+      this.currentScreen = newValue;
+    }
   }
 };
 </script>
@@ -37,6 +57,10 @@ body {
 
   .screen:not(#home) {
     padding: 2rem;
+
+    &#projects {
+      padding-right: 0;
+    }
   }
 
   h1,
@@ -44,7 +68,12 @@ body {
     font-family: "sintony", sans-serif;
   }
 
-  h3 {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h3,
+  figcaption {
     font-family: "opensans", sans-serif;
   }
 }

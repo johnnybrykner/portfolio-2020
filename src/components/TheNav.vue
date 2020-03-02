@@ -94,6 +94,11 @@ export default {
     toggleNav() {
       this.collapsed = !this.collapsed;
     }
+  },
+  watch: {
+    currentSubPage: function(newValue) {
+      this.$emit("screen-change", newValue);
+    }
   }
 };
 </script>
@@ -115,7 +120,7 @@ export default {
   }
   .the-nav__drawer {
     text-align: center;
-    background-color: #222;
+    background-color: $black-ish;
 
     .drawer__links {
       height: 100%;

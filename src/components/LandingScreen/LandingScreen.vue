@@ -1,8 +1,9 @@
 <template>
   <section class="landing">
-    <h1>My name is Vít Brykner and I</h1>
+    <h1>My name is Vít Brykner</h1>
+    <span class="landing__loves">and I</span>
     <the-heart withBackground class="landing__heart" />
-    <h1>{{ loves[currentLove] }}</h1>
+    <span class="landing__loves">{{ loves[currentLove] }}</span>
   </section>
 </template>
 
@@ -45,9 +46,9 @@ export default {
   align-items: center;
   overflow: hidden;
 
-  .landing__heart {
-    align-self: center;
-    margin-bottom: -100px;
+  .landing__loves {
+    text-align: center;
+    font-family: "sintony", sans-serif;
   }
 }
 </style>

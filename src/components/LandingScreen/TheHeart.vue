@@ -19,17 +19,16 @@ export default {
 
 <style scoped lang="scss">
 .heart {
-  position: relative;
   width: 100px;
   height: 90px;
+  position: relative;
 
   &.heart--main {
     animation: heartbeat 3s infinite;
   }
 
   &.heart--background {
-    position: relative;
-    bottom: 50%;
+    bottom: 90px;
     animation: backgroundheart 3s infinite;
 
     &::before,
