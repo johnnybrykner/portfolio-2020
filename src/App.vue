@@ -11,14 +11,23 @@
       class="screen"
       :minScreenHeight="minScreenHeight"
     />
-    <div id="test2" class="screen" :style="{ height: '3000px' }"></div>
-    <contact-screen id="contact" class="screen" />
+    <about-screen
+      id="about"
+      class="screen"
+      :style="{ minHeight: minScreenHeight + 'px' }"
+    />
+    <contact-screen
+      id="contact"
+      class="screen"
+      :style="{ minHeight: minScreenHeight + 'px' }"
+    />
   </div>
 </template>
 
 <script>
 import LandingScreen from "@/components/LandingScreen/LandingScreen.vue";
 import ProjectsScreen from "@/components/ProjectsScreen/ProjectsScreen.vue";
+import AboutScreen from "@/components/AboutScreen/AboutScreen.vue";
 import ContactScreen from "@/components/ContactScreen/ContactScreen.vue";
 import TheNav from "@/components/TheNav.vue";
 
@@ -27,6 +36,7 @@ export default {
   components: {
     LandingScreen,
     ProjectsScreen,
+    AboutScreen,
     ContactScreen,
     TheNav
   },

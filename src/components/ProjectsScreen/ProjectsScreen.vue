@@ -302,7 +302,7 @@ h1 {
       flex-flow: column nowrap;
       justify-content: space-between;
       padding: 1rem;
-      flex-basis: 1264px;
+      flex-basis: 1280px;
 
       .project__header {
         display: flex;
