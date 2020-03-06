@@ -1,9 +1,6 @@
 <template>
   <div id="app">
-    <the-nav
-      :minScreenHeight="minScreenHeight"
-      @screen-change="setCurrentScreen($event)"
-    />
+    <the-nav :minScreenHeight="minScreenHeight" />
     <landing-screen
       id="home"
       class="screen"
@@ -12,7 +9,6 @@
     <projects-screen
       id="projects"
       class="screen"
-      :currentScreen="currentScreen"
       :minScreenHeight="minScreenHeight"
     />
     <div id="test2" class="screen" :style="{ height: '3000px' }"></div>
@@ -34,18 +30,8 @@ export default {
     ContactScreen,
     TheNav
   },
-  data: function() {
-    return {
-      currentScreen: 0
-    };
-  },
   computed: {
     minScreenHeight: () => window.innerHeight
-  },
-  methods: {
-    setCurrentScreen(newValue) {
-      this.currentScreen = newValue;
-    }
   }
 };
 </script>
@@ -63,17 +49,26 @@ body {
     }
   }
 
+  a {
+    color: inherit;
+  }
+
   h1,
-  h2 {
+  h2,
+  h3,
+  figcaption {
     font-family: "sintony", sans-serif;
   }
 
   h1 {
-    font-size: 2rem;
+    font-size: 1.75rem;
   }
 
-  h3,
-  figcaption {
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  p {
     font-family: "opensans", sans-serif;
   }
 }

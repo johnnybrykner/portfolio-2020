@@ -1,15 +1,10 @@
 <template>
-  <div class="the-nav">
+  <div class="the-nav" :class="{ 'the-nav--full-width': !collapsed }">
     <transition name="fade" mode="out-in">
       <span class="the-nav__toggle" v-if="collapsed" @click="toggleNav"
         >Open up!</span
       >
-      <div
-        class="the-nav__drawer"
-        :style="{ height: minScreenHeight + 'px' }"
-        v-else
-        @click="toggleNav"
-      >
+      <div class="the-nav__drawer" v-else @click="toggleNav">
         <ol class="drawer__links">
           <li
             v-for="link in navLinks"
@@ -23,7 +18,7 @@
             <div
               class="bottom"
               :style="{
-                background: `linear-gradient(90deg, yellow ${currentSubPageProgress}%, red ${currentSubPageProgress}%)`
+                background: `linear-gradient(90deg, white ${currentSubPageProgress}%, black ${currentSubPageProgress}%)`
               }"
             ></div>
           </li>
@@ -70,6 +65,8 @@ export default {
     }
   },
   mounted: function() {
+    let scrollingTimeout = null;
+
     document.querySelectorAll(".screen").forEach((screen, position) => {
       this.navLinks.push({
         position,
@@ -79,6 +76,13 @@ export default {
     });
 
     window.addEventListener("scroll", () => {
+      window.clearTimeout(scrollingTimeout);
+      scrollingTimeout = setTimeout(() => {
+        this.$store.commit(
+          "setCurrentSreenScrollProgress",
+          this.currentSubPageProgress
+        );
+      }, 100);
       let position = window.scrollY;
       let i = 0;
       do {
@@ -97,7 +101,7 @@ export default {
   },
   watch: {
     currentSubPage: function(newValue) {
-      this.$emit("screen-change", newValue);
+      this.$store.commit("setCurrentScreen", newValue);
     }
   }
 };
@@ -109,9 +113,13 @@ export default {
   top: 0;
   right: 0;
   z-index: 1;
-  width: 100%;
   display: flex;
   flex-flow: column nowrap;
+
+  &.the-nav--full-width {
+    width: 100%;
+    height: 100%;
+  }
 
   .the-nav__toggle {
     font-family: "sintony", sans-serif;
@@ -119,6 +127,7 @@ export default {
     padding: 1rem;
   }
   .the-nav__drawer {
+    height: 100%;
     text-align: center;
     background-color: $black-ish;
 
