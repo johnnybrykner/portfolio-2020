@@ -1,5 +1,5 @@
 <template>
-  <div class="the-nav" :class="{ 'the-nav--full-width': !collapsed }">
+  <div class="the-nav" :style="{ pointerEvents: collapsed ? 'none' : 'auto' }">
     <transition name="fade" mode="out-in">
       <span class="the-nav__toggle" v-if="collapsed" @click="toggleNav"
         >Open up!</span
@@ -36,7 +36,7 @@ export default {
       collapsed: true,
       currentSubPage: 0,
       navLinks: [],
-      howDeepIntoCurrentSubPage: 0
+      howDeepIntoCurrentSubPage: this.minScreenHeight
     };
   },
   props: {
@@ -83,7 +83,7 @@ export default {
           this.currentSubPageProgress
         );
       }, 100);
-      let position = window.scrollY;
+      let position = window.scrollY + this.minScreenHeight;
       let i = 0;
       do {
         position = position - this.individualScreenHeights[i];
@@ -91,7 +91,7 @@ export default {
         this.currentSubPage = i - 1;
         this.howDeepIntoCurrentSubPage =
           position + this.individualScreenHeights[this.currentSubPage];
-      } while (position >= 0);
+      } while (position > 0);
     });
   },
   methods: {
@@ -115,16 +115,15 @@ export default {
   z-index: 1;
   display: flex;
   flex-flow: column nowrap;
-
-  &.the-nav--full-width {
-    width: 100%;
-    height: 100%;
-  }
+  width: 100%;
+  height: 100%;
 
   .the-nav__toggle {
     font-family: "sintony", sans-serif;
     align-self: flex-end;
     padding: 1rem;
+    pointer-events: auto;
+    cursor: pointer;
   }
   .the-nav__drawer {
     height: 100%;
@@ -195,11 +194,12 @@ export default {
 
   .fade-enter-active,
   .fade-leave-active {
-    transition: opacity 0.2s;
+    transition: all 0.2s;
   }
   .fade-enter,
   .fade-leave-to {
     opacity: 0;
+    transform: translateX(100%);
   }
 }
 </style>
