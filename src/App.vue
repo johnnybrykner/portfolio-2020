@@ -14,6 +14,7 @@
     <about-screen
       id="about"
       class="screen"
+      :minScreenHeight="minScreenHeight"
       :style="{ minHeight: minScreenHeight + 'px' }"
     />
     <contact-screen
@@ -51,8 +52,12 @@ body {
   background-color: $primary-color;
   animation: backgroundshift 15s 3s infinite;
 
-  .screen:not(#home) {
-    padding: 2rem;
+  .screen {
+    overflow: hidden;
+
+    &:not(#home) {
+      padding: 2rem;
+    }
 
     &#projects {
       padding-right: 0;

@@ -237,7 +237,6 @@ h1 {
 .projects {
   display: flex;
   flex-flow: row-reverse nowrap;
-  overflow: hidden;
   padding-bottom: 1rem;
 
   .projects__timeline {
@@ -302,7 +301,7 @@ h1 {
       flex-flow: column nowrap;
       justify-content: space-between;
       padding: 1rem;
-      flex-basis: 1280px;
+      flex-basis: 1328px;
 
       .project__header {
         display: flex;

@@ -44,7 +44,6 @@ export default {
   flex-flow: column nowrap;
   justify-content: space-evenly;
   align-items: center;
-  overflow: hidden;
 
   .landing__loves {
     text-align: center;
