@@ -13,6 +13,7 @@
               completed: link.position < currentSubPage,
               'in-progress': link.position === currentSubPage
             }"
+            @click="goToScreen(link.position)"
           >
             <div class="top">{{ link.title }}</div>
             <div
@@ -67,13 +68,7 @@ export default {
   mounted: function() {
     let scrollingTimeout = null;
 
-    document.querySelectorAll(".screen").forEach((screen, position) => {
-      this.navLinks.push({
-        position,
-        title: screen.id[0].toUpperCase() + screen.id.slice(1),
-        height: screen.scrollHeight
-      });
-    });
+    this.getScreensDetails();
 
     window.addEventListener("scroll", () => {
       window.clearTimeout(scrollingTimeout);
@@ -93,10 +88,33 @@ export default {
           position + this.individualScreenHeights[this.currentSubPage];
       } while (position > 0);
     });
+
+    window.addEventListener("resize", () => this.getScreensDetails());
   },
   methods: {
     toggleNav() {
       this.collapsed = !this.collapsed;
+    },
+    goToScreen(screenNumber) {
+      let pixelAmount = 0;
+      for (let i = 0; i < screenNumber; i++) {
+        pixelAmount += this.individualScreenHeights[i];
+      }
+      console.log(pixelAmount);
+      window.scrollTo({
+        top: pixelAmount,
+        behavior: "smooth"
+      });
+    },
+    getScreensDetails() {
+      this.navLinks = [];
+      document.querySelectorAll(".screen").forEach((screen, position) => {
+        this.navLinks.push({
+          position,
+          title: screen.id[0].toUpperCase() + screen.id.slice(1),
+          height: screen.clientHeight
+        });
+      });
     }
   },
   watch: {

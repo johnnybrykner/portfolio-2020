@@ -4,7 +4,7 @@
     <landing-screen
       id="home"
       class="screen"
-      :style="{ minHeight: minScreenHeight + 'px' }"
+      :style="{ height: minScreenHeight + 'px' }"
     />
     <projects-screen
       id="projects"
@@ -15,13 +15,8 @@
       id="about"
       class="screen"
       :minScreenHeight="minScreenHeight"
-      :style="{ minHeight: minScreenHeight + 'px' }"
     />
-    <contact-screen
-      id="contact"
-      class="screen"
-      :style="{ minHeight: minScreenHeight + 'px' }"
-    />
+    <contact-screen id="contact" class="screen" />
   </div>
 </template>
 

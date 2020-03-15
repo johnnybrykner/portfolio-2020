@@ -240,7 +240,7 @@ h1 {
   padding-bottom: 1rem;
 
   .projects__timeline {
-    padding: 1rem;
+    padding: 0.75rem;
     margin-right: 1rem;
     box-shadow: 0.5rem 0.5rem $black-ish;
     background: linear-gradient(
@@ -301,7 +301,7 @@ h1 {
       flex-flow: column nowrap;
       justify-content: space-between;
       padding: 1rem;
-      flex-basis: 1344px;
+      flex-basis: 1410px;
 
       .project__header {
         display: flex;
