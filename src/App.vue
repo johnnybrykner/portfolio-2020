@@ -53,10 +53,6 @@ body {
     &:not(#home) {
       padding: 2rem;
     }
-
-    &#projects {
-      padding-right: 0;
-    }
   }
 
   a {

@@ -12,6 +12,18 @@ $patria-color: #e01734;
 $togo-color: #009de0;
 $bilka-color: #00aeef;
 
+$breakpoints: (
+  "sm": 0,
+  "md": 768px,
+  "lg": 1280px
+);
+
+@mixin when-screen-is($breakpoint) {
+  @media (min-width: map-get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
 @keyframes heartbeat {
   0% { transform: scale(1); }
   25% { transform: scale(2); }

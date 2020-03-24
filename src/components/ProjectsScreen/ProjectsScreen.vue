@@ -1,65 +1,55 @@
 <template>
-  <section>
+  <section
+    class="projects__container"
+    :style="{ backgroundColor: getCurrentColor }"
+  >
     <h1>Some of the projects I took part in:</h1>
-    <div class="projects">
-      <transition name="slide">
-        <div v-if="timeline" class="projects__timeline">
-          <div
-            class="timeline__fragment"
-            v-for="(project, index) in projects"
-            :key="index"
+    <article
+      class="projects__project"
+      v-for="project in projects"
+      :key="project.title"
+    >
+      <div class="project__details">
+        <div class="project__header">
+          <a
+            class="project__title"
+            :href="project.url"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            <span class="timeline__start">{{ project.start }}</span>
-            <span class="timeline__divider"></span>
-            <span class="timeline__end">{{ project.end }}</span>
-          </div>
+            <h2>{{ project.title }}</h2>
+            <img
+              class="project__logo"
+              :src="require('@/assets/' + project.logo)"
+              :alt="project.title"
+            />
+          </a>
+          <h3 class="project__subtitle">{{ project.subtitle }}</h3>
+          <p class="project__description">{{ project.description }}</p>
         </div>
-      </transition>
-      <div
-        class="projects__container"
-        :style="{ backgroundColor: highlightedProjectColor }"
-      >
-        <article
-          class="projects__project"
-          v-for="project in projects"
-          :key="project.title"
-        >
-          <div class="project__header">
-            <a
-              class="project__title"
-              :href="project.url"
-              target="_blank"
-              rel="noopener noreferrer"
+        <figure class="project__about">
+          <figcaption>Technologies used:</figcaption>
+          <div class="project__technologies">
+            <div
+              class="project__technology"
+              v-for="technology in project.technologies"
+              :key="technology.image"
             >
-              <h2>{{ project.title }}</h2>
               <img
-                class="project__logo"
-                :src="require('@/assets/' + project.logo)"
-                :alt="project.title"
+                :src="require('@/assets/' + technology.image)"
+                :alt="technology.image.split('.')[0]"
               />
-            </a>
-            <h3 class="project__subtitle">{{ project.subtitle }}</h3>
-            <p class="project__description">{{ project.description }}</p>
-          </div>
-          <figure class="project__about">
-            <figcaption>Technologies used:</figcaption>
-            <div class="project__technologies">
-              <div
-                class="project__technology"
-                v-for="technology in project.technologies"
-                :key="technology.image"
-              >
-                <img
-                  :src="require('@/assets/' + technology.image)"
-                  :alt="technology.image.split('.')[0]"
-                />
-                <p>{{ technology.text }}</p>
-              </div>
+              <p>{{ technology.text }}</p>
             </div>
-          </figure>
-        </article>
+          </div>
+        </figure>
       </div>
-    </div>
+      <div class="timeline__fragment">
+        <span class="timeline__start">{{ project.start }}</span>
+        <span class="timeline__divider"></span>
+        <span class="timeline__end">{{ project.end }}</span>
+      </div>
+    </article>
   </section>
 </template>
 
@@ -71,6 +61,7 @@ export default {
   data: function() {
     return {
       timeline: false,
+      currentProject: 0,
       projects: [
         {
           title: "skif-patria.pl",
@@ -196,113 +187,63 @@ export default {
   },
   computed: {
     ...mapGetters(["getCurrentScreenScrollProgress", "getCurrentScreen"]),
-    highlightedProjectColor() {
-      if (this.getCurrentScreen === 1) {
-        const activeProject = Math.floor(
-          this.getCurrentScreenScrollProgress / (100 / this.projects.length)
-        );
-        let resultColor = null;
-        switch (activeProject) {
-          case 0:
-            resultColor = "#e01734";
-            break;
-          case 1:
-            resultColor = "#009de0";
-            break;
-          case 2:
-            resultColor = "#00aeef";
-            break;
-          default:
-            resultColor = "#79bd9a";
-        }
-        return resultColor;
-      }
-      return "#79bd9a";
+    getCurrentColor() {
+      if (this.currentProject === 0) return "#e01734";
+      else if (this.currentProject === 1) return "#009de0";
+      else if (this.currentProject === 2) return "#00aeef";
+      else return "#79bd9a";
+    }
+  },
+  mounted: function() {
+    const scrollObserver = new IntersectionObserver(this.changeBackground, {
+      threshold: 0
+    });
+    scrollObserver.observe(document.querySelector(".projects__container"));
+  },
+  methods: {
+    changeBackground(entries) {
+      entries[0].isIntersecting
+        ? (this.timeline = true)
+        : (this.timeline = false);
     }
   },
   watch: {
-    getCurrentScreen: function(newValue) {
-      if (newValue === 1) this.timeline = true;
-      else this.timeline = false;
+    getCurrentScreenScrollProgress(newValue) {
+      if (this.getCurrentScreen !== 1) {
+        this.currentProject = null;
+        return;
+      }
+      let percentages = [0.1];
+      let containerHeight = document.querySelector(".projects__container")
+        .clientHeight;
+      let projects = document.querySelectorAll(".projects__project");
+      projects.forEach((project, index) =>
+        percentages.push(
+          project.clientHeight / containerHeight + percentages[index]
+        )
+      );
+      for (let i = 0; i < projects.length; i++) {
+        if (percentages[i] * 100 <= newValue) this.currentProject = i;
+      }
     }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-h1 {
-  margin-bottom: 1rem;
-}
-
-.projects {
+.projects__container {
   display: flex;
-  flex-flow: row-reverse nowrap;
-  padding-bottom: 1rem;
+  flex-flow: column nowrap;
+  transition: background-color 1s ease;
 
-  .projects__timeline {
-    padding: 0.75rem;
-    margin-right: 1rem;
-    box-shadow: 0.5rem 0.5rem $black-ish;
-    background: linear-gradient(
-      $patria-color 0%,
-      $patria-color calc(100% / 3),
-      $togo-color calc(100% / 3),
-      $togo-color calc(100% / 3 * 2),
-      $bilka-color calc(100% / 3 * 2),
-      $bilka-color 100%
-    );
-    border-radius: 20px;
-
-    .timeline__fragment {
-      width: 1rem;
-      margin-bottom: 1rem;
-      display: flex;
-      flex-flow: column nowrap;
-      justify-content: space-between;
-      align-items: center;
-      height: calc(100% / 3 - 8px);
-
-      .timeline__start,
-      .timeline__end {
-        writing-mode: vertical-rl;
-        text-orientation: upright;
-        font-family: "sintony", sans-serif;
-      }
-
-      .timeline__divider {
-        flex: auto;
-        width: 2px;
-        display: block;
-        background-color: $black-ish;
-        margin: 1rem 0;
-      }
-    }
-
-    &.slide-enter-active,
-    &.slide-leave-active {
-      transition: all 0.3s ease;
-    }
-
-    &.slide-enter,
-    &.slide-leave-to {
-      transform: translateX(50px);
-    }
+  h1 {
+    margin-bottom: 1rem;
   }
 
-  .projects__container {
+  .projects__project {
     display: flex;
-    flex-flow: column nowrap;
-    margin-right: 2rem;
-    box-shadow: 1rem 1rem $black-ish;
-    transition: background-color 1s ease;
 
-    .projects__project {
-      display: flex;
-      flex-flow: column nowrap;
-      justify-content: space-between;
-      padding: 1rem;
-      flex-basis: 1410px;
-
+    .project__details {
       .project__header {
         display: flex;
         flex-flow: column nowrap;
@@ -310,7 +251,6 @@ h1 {
         .project__title {
           display: flex;
           flex-flow: column nowrap;
-          justify-content: space-between;
           align-items: baseline;
 
           .project__logo {
@@ -333,7 +273,6 @@ h1 {
         display: flex;
         flex-flow: column nowrap;
         margin-top: 2rem;
-        flex-grow: 1;
 
         figcaption {
           margin-bottom: 0.5rem;
@@ -342,11 +281,15 @@ h1 {
         .project__technologies {
           display: flex;
           flex-flow: column nowrap;
-          flex-grow: 1;
 
           .project__technology {
             display: flex;
-            flex: 0 0 20%;
+            padding-bottom: 1rem;
+            align-items: center;
+
+            &:last-of-type {
+              padding-bottom: 2rem;
+            }
 
             img {
               margin-right: 1rem;
@@ -355,6 +298,34 @@ h1 {
             }
           }
         }
+      }
+    }
+
+    .timeline__fragment {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-right: -2rem;
+      padding: 0 1rem;
+
+      .timeline__start,
+      .timeline__end {
+        writing-mode: vertical-rl;
+        text-orientation: upright;
+        font-family: "sintony", sans-serif;
+      }
+
+      .timeline__end {
+        padding-bottom: 1.8rem;
+      }
+
+      .timeline__divider {
+        flex: 1 0 auto;
+        width: 2px;
+        display: block;
+        background-color: $black-ish;
+        margin: 1rem 0;
       }
     }
   }

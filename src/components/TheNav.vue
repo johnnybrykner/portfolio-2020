@@ -73,6 +73,7 @@ export default {
     window.addEventListener("scroll", () => {
       window.clearTimeout(scrollingTimeout);
       scrollingTimeout = setTimeout(() => {
+        this.getScreensDetails(); // Swap font files to remove this
         this.$store.commit(
           "setCurrentSreenScrollProgress",
           this.currentSubPageProgress
@@ -86,10 +87,8 @@ export default {
         this.currentSubPage = i - 1;
         this.howDeepIntoCurrentSubPage =
           position + this.individualScreenHeights[this.currentSubPage];
-      } while (position > 0);
+      } while (position > 0 && i < this.navLinks.length);
     });
-
-    window.addEventListener("resize", () => this.getScreensDetails());
   },
   methods: {
     toggleNav() {
@@ -100,7 +99,6 @@ export default {
       for (let i = 0; i < screenNumber; i++) {
         pixelAmount += this.individualScreenHeights[i];
       }
-      console.log(pixelAmount);
       window.scrollTo({
         top: pixelAmount,
         behavior: "smooth"
