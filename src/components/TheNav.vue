@@ -89,6 +89,14 @@ export default {
           position + this.individualScreenHeights[this.currentSubPage];
       } while (position > 0 && i < this.navLinks.length);
     });
+
+    document.addEventListener("click", event => {
+      if (
+        !event.target.closest(".the-nav__drawer") &&
+        event.target !== document.querySelector(".the-nav__toggle")
+      )
+        this.collapsed = true;
+    });
   },
   methods: {
     toggleNav() {
@@ -167,6 +175,7 @@ export default {
           align-items: center;
           height: 100%;
           transition: all 0.5s;
+          font-size: 3rem;
 
           &.bottom {
             height: 50px;
@@ -216,6 +225,22 @@ export default {
   .fade-leave-to {
     opacity: 0;
     transform: translateX(100%);
+  }
+
+  @include when-screen-is(lg) {
+    width: 500px;
+
+    .the-nav__drawer {
+      background-color: transparent;
+
+      .top {
+        cursor: pointer;
+
+        &:hover {
+          color: white;
+        }
+      }
+    }
   }
 }
 </style>

@@ -52,6 +52,13 @@ body {
 
     &:not(#home) {
       padding: 2rem;
+
+      @include when-screen-is(md) {
+        padding: 4rem;
+      }
+      @include when-screen-is(lg) {
+        padding: 8rem;
+      }
     }
   }
 
@@ -68,14 +75,37 @@ body {
 
   h1 {
     font-size: 1.75rem;
+    @include when-screen-is(md) {
+      font-size: 2.25rem;
+    }
+    @include when-screen-is(lg) {
+      font-size: 3.5rem;
+    }
   }
 
   h2 {
     font-size: 1.25rem;
+    @include when-screen-is(md) {
+      font-size: 1.5rem;
+    }
+    @include when-screen-is(lg) {
+      font-size: 2rem;
+    }
   }
 
   p {
     font-family: "opensans", sans-serif;
+  }
+
+  p,
+  figcaption,
+  h3 {
+    @include when-screen-is(md) {
+      font-size: 1.1rem;
+    }
+    @include when-screen-is(lg) {
+      font-size: 1.25rem;
+    }
   }
 }
 </style>

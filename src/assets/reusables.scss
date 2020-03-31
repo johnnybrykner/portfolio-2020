@@ -59,3 +59,10 @@ $breakpoints: (
   75% { transform: scale(1.1); }
   100% { transform: scale(1); }
 }
+
+@keyframes illusion {
+  0% { box-shadow: 0.5rem 0.5rem $black-ish; transform: translateZ(0) rotateX(6deg); }
+  25% { box-shadow: 0 0 transparent; background-color: transparent; transform: translateZ(-6px); }
+  75% { box-shadow: 0.5rem 0.5rem $black-ish; transform: translateZ(0) rotateX(6deg); }
+  100% { box-shadow: 0.5rem 0.5rem $black-ish; transform: translateZ(0) rotateX(6deg); }
+}

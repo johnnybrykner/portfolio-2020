@@ -1,9 +1,11 @@
 <template>
   <section class="landing">
     <h1>My name is Vít Brykner</h1>
-    <span class="landing__loves">and I</span>
+    <span>and I</span>
     <the-heart withBackground class="landing__heart" />
-    <span class="landing__loves">{{ loves[currentLove] }}</span>
+    <div class="landing__loves">
+      <span class="landing__love">{{ loves[currentLove] }}</span>
+    </div>
   </section>
 </template>
 
@@ -21,7 +23,8 @@ export default {
         "Web Development",
         "Learning New Technologies",
         "Clean and Efficient Code",
-        "Elma Harmsen"
+        "Elma Harmsen",
+        "Electronic Music"
       ],
       currentLove: 0
     };
@@ -45,9 +48,42 @@ export default {
   justify-content: space-evenly;
   align-items: center;
 
-  .landing__loves {
+  span {
     text-align: center;
     font-family: "sintony", sans-serif;
+
+    @include when-screen-is(md) {
+      font-size: 1.5rem;
+    }
+    @include when-screen-is(lg) {
+      font-size: 2rem;
+    }
+  }
+
+  .landing__loves {
+    perspective: 200px;
+    perspective-origin: 125%;
+    transform-style: preserve-3d;
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include when-screen-is(md) {
+      width: 400px;
+    }
+
+    @include when-screen-is(lg) {
+      width: 550px;
+    }
+
+    .landing__love {
+      display: block;
+      width: 100%;
+      background-color: $heart-color;
+      padding: 1rem;
+      animation: illusion 3s infinite none;
+    }
   }
 }
 </style>

@@ -61,7 +61,7 @@ export default {
   data: function() {
     return {
       timeline: false,
-      currentProject: 0,
+      currentProject: null,
       projects: [
         {
           title: "skif-patria.pl",
@@ -210,7 +210,7 @@ export default {
   watch: {
     getCurrentScreenScrollProgress(newValue) {
       if (this.getCurrentScreen !== 1) {
-        this.currentProject = null;
+        this.currentProject = 2;
         return;
       }
       let percentages = [0.1];
@@ -225,6 +225,16 @@ export default {
       for (let i = 0; i < projects.length; i++) {
         if (percentages[i] * 100 <= newValue) this.currentProject = i;
       }
+    },
+    currentProject(newValue) {
+      for (let i = 0; i < this.projects.length; i++) {
+        document
+          .querySelectorAll(".projects__project")
+          [i].classList.remove("active");
+      }
+      document
+        .querySelectorAll(".projects__project")
+        [newValue].classList.add("active");
     }
   }
 };
@@ -252,6 +262,7 @@ export default {
           display: flex;
           flex-flow: column nowrap;
           align-items: baseline;
+          width: max-content;
 
           .project__logo {
             margin-top: 0.5rem;
@@ -284,11 +295,16 @@ export default {
 
           .project__technology {
             display: flex;
-            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
             align-items: center;
 
+            @include when-screen-is(md) {
+              margin-bottom: 3rem;
+            }
+
             &:last-of-type {
-              padding-bottom: 2rem;
+              margin-bottom: 2rem;
             }
 
             img {
@@ -296,6 +312,12 @@ export default {
               min-width: 64px;
               height: 64px;
             }
+          }
+
+          @include when-screen-is(lg) {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 3rem;
           }
         }
       }
@@ -307,17 +329,19 @@ export default {
       justify-content: space-between;
       align-items: center;
       margin-right: -2rem;
-      padding: 0 1rem;
+      padding-right: 1rem;
+      padding-left: 2rem;
 
       .timeline__start,
       .timeline__end {
+        padding: 0.5rem;
         writing-mode: vertical-rl;
         text-orientation: upright;
         font-family: "sintony", sans-serif;
       }
 
       .timeline__end {
-        padding-bottom: 1.8rem;
+        margin-bottom: 2rem;
       }
 
       .timeline__divider {
@@ -327,6 +351,50 @@ export default {
         background-color: $black-ish;
         margin: 1rem 0;
       }
+
+      @include when-screen-is(md) {
+        padding-left: 7.5rem;
+        padding-right: 2rem;
+        margin-right: -4rem;
+      }
+    }
+
+    &.active {
+      .project__technology {
+        background-color: $heart-color;
+        box-shadow: 0.5rem 0.5rem $black-ish;
+      }
+
+      .timeline__start,
+      .timeline__divider,
+      .timeline__end,
+      .project__technology {
+        transition-timing-function: ease;
+        transition-property: background-color, box-shadow;
+        transition-duration: 0.5s;
+      }
+
+      .timeline__start,
+      .timeline__end {
+        background-color: $heart-color;
+        box-shadow: 0.5rem 0.5rem $black-ish;
+      }
+
+      .timeline__start {
+        transition-delay: 0.25s;
+      }
+
+      .timeline__divider {
+        width: 5px;
+      }
+
+      .timeline__end {
+        transition-delay: 0.75s;
+      }
+    }
+
+    @include when-screen-is(lg) {
+      min-height: 80vh;
     }
   }
 }

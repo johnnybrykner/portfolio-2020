@@ -18,9 +18,12 @@ export default {
 </script>
 
 <style scoped lang="scss">
+$width: 150px;
+$height: $width * 0.9;
+
 .heart {
-  width: 100px;
-  height: 90px;
+  width: $width;
+  height: $height;
   position: relative;
 
   &.heart--main {
@@ -28,7 +31,7 @@ export default {
   }
 
   &.heart--background {
-    bottom: 90px;
+    bottom: $height;
     animation: backgroundheart 3s infinite;
 
     &::before,
@@ -41,12 +44,12 @@ export default {
   &::after {
     position: absolute;
     content: "";
-    left: 50px;
+    left: $width / 2;
     top: 0;
-    width: 50px;
-    height: 80px;
+    width: $width / 2;
+    height: $height * 0.9;
     background: $heart-color;
-    border-radius: 50px 50px 0 0;
+    border-radius: $width / 2 $width / 2 0 0;
     transform: rotate(-45deg);
     transform-origin: 0 100%;
   }
