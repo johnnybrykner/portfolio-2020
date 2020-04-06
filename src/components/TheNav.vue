@@ -19,7 +19,7 @@
             <div
               class="bottom"
               :style="{
-                background: `linear-gradient(90deg, white ${currentSubPageProgress}%, black ${currentSubPageProgress}%)`
+                background: `linear-gradient(90deg, #52ffb8 ${currentSubPageProgress}%, #222 ${currentSubPageProgress}%)`
               }"
             ></div>
           </li>
@@ -162,7 +162,7 @@ export default {
       li {
         flex-basis: 25%;
         font-family: "sintony", sans-serif;
-        color: black;
+        color: $white-ish;
         transition: all 0.5s;
         perspective: 200px;
         perspective-origin: 125%;
@@ -184,16 +184,15 @@ export default {
         }
 
         &.in-progress {
-          color: white;
+          color: $black-ish;
           transform: translateX(42px) translateY(-55px);
 
           .top {
-            background-color: blue;
+            background-color: $secondary-color;
             transform: rotateX(4deg);
           }
 
           .bottom {
-            background-color: red;
             width: 100%;
             transform: rotateX(-4deg) translateZ(6px);
             display: block;
@@ -201,8 +200,8 @@ export default {
         }
 
         &.completed {
-          color: white;
-          background-color: blue;
+          color: $black-ish;
+          background-color: $heart-color;
           transform: none;
 
           .top {
@@ -237,7 +236,7 @@ export default {
         cursor: pointer;
 
         &:hover {
-          color: white;
+          color: $black-ish;
         }
       }
     }

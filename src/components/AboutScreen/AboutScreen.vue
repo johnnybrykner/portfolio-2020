@@ -117,10 +117,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-h1 {
-  margin-bottom: 1rem;
-}
-
 .about {
   display: flex;
   flex-flow: column nowrap;

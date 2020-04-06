@@ -191,7 +191,7 @@ export default {
       if (this.currentProject === 0) return "#e01734";
       else if (this.currentProject === 1) return "#009de0";
       else if (this.currentProject === 2) return "#00aeef";
-      else return "#79bd9a";
+      else return "#52ffb8";
     }
   },
   mounted: function() {
@@ -246,10 +246,6 @@ export default {
   flex-flow: column nowrap;
   transition: background-color 1s ease;
 
-  h1 {
-    margin-bottom: 1rem;
-  }
-
   .projects__project {
     display: flex;
 
@@ -286,7 +282,7 @@ export default {
         margin-top: 2rem;
 
         figcaption {
-          margin-bottom: 0.5rem;
+          margin-bottom: 1rem;
         }
 
         .project__technologies {
@@ -394,7 +390,9 @@ export default {
     }
 
     @include when-screen-is(lg) {
-      min-height: 80vh;
+      &:not(:last-of-type) {
+        padding-bottom: 8rem;
+      }
     }
   }
 }

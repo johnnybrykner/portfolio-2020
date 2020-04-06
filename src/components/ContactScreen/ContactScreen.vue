@@ -53,10 +53,6 @@ export default {
 
 <style lang="scss" scoped>
 .contact {
-  h1 {
-    margin-bottom: 1rem;
-  }
-
   p {
     margin-bottom: 1rem;
   }

@@ -44,6 +44,7 @@ export default {
 
 <style lang="scss">
 body {
+  color: $black-ish;
   background-color: $primary-color;
   animation: backgroundshift 15s 3s infinite;
 
@@ -74,6 +75,8 @@ body {
   }
 
   h1 {
+    margin-bottom: 1.5rem;
+    text-align: center;
     font-size: 1.75rem;
     @include when-screen-is(md) {
       font-size: 2.25rem;
