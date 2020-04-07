@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="about__container">
     <h1>Who am I exactly?</h1>
     <div class="about">
       <article
@@ -77,7 +77,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["getCurrentScreenScrollProgress"])
+    ...mapGetters(["getCurrentScreenScrollProgress", "getCurrentScreen"])
   },
   methods: {
     calculateLineProperties() {
@@ -92,25 +92,61 @@ export default {
         (Math.atan((layoutDimensions.width - 40) / layoutDimensions.height) *
           180) /
         Math.PI;
+    },
+    mapInView(entries) {
+      entries[0].isIntersecting && entries[0].intersectionRatio >= 0.15
+        ? document.querySelector(".about").classList.add("in-view")
+        : document.querySelector(".about").classList.remove("in-view");
     }
   },
   mounted: function() {
+    const scrollObserver = new IntersectionObserver(this.mapInView, {
+      threshold: [0, 0.05, 0.1, 0.15]
+    });
+    scrollObserver.observe(document.querySelector(".about"));
     this.calculateLineProperties();
     window.addEventListener("resize", this.calculateLineProperties);
   },
   watch: {
-    getCurrentScreenScrollProgress: function() {
-      document.querySelectorAll(".milestone__properties").forEach(milestone => {
-        if (milestone.getBoundingClientRect().y <= this.minScreenHeight)
-          milestone.classList.add("slimey");
-        else milestone.classList.remove("slimey");
-      });
-      document.querySelectorAll(".about__line").forEach(line => {
-        const placement = line.getBoundingClientRect();
-        if (placement.y <= this.minScreenHeight - placement.height)
-          line.classList.remove("hidden");
-        else line.classList.add("hidden");
-      });
+    getCurrentScreenScrollProgress: function(newValue) {
+      if (this.getCurrentScreen === 2) {
+        document.querySelectorAll(".about__milestone").forEach(milestone => {
+          if (
+            milestone.getBoundingClientRect().y <= this.minScreenHeight &&
+            milestone.getBoundingClientRect().y >= 64
+          )
+            milestone.classList.add("slimey");
+          else milestone.classList.remove("slimey");
+        });
+        document.querySelectorAll(".about__line").forEach(line => {
+          const placement = line.getBoundingClientRect();
+          if (
+            placement.y <= this.minScreenHeight - placement.height &&
+            placement.y >= 64
+          )
+            line.classList.remove("hidden");
+          else line.classList.add("hidden");
+        });
+
+        const headerPercentage =
+          56 / document.querySelector(".about__container").clientHeight;
+        const currentMilestone = Math.floor(
+          ((newValue / 100 - headerPercentage) *
+            document.querySelector(".about").clientHeight) /
+            this.minScreenHeight
+        );
+        const mapContainer = document.querySelector(".about");
+
+        if (currentMilestone === 0) {
+          mapContainer.classList.add("cz");
+          mapContainer.classList.remove("dk");
+        } else if (currentMilestone === 1 || currentMilestone === 2) {
+          mapContainer.classList.add("dk");
+          mapContainer.classList.remove("cz");
+        } else {
+          mapContainer.classList.remove("cz", "dk");
+        }
+      }
     }
   }
 };
@@ -130,16 +166,18 @@ export default {
       grid-template-rows: 64px;
     }
 
+    &.slimey {
+      .milestone__properties {
+        opacity: 1;
+        animation: slimey 1s forwards ease-out;
+      }
+    }
+
     .milestone__properties {
       display: flex;
       grid-row: 1;
       grid-column: 1/4;
       opacity: 0;
-
-      &.slimey {
-        opacity: 1;
-        animation: slimey 1s forwards ease-out;
-      }
 
       .milestone__info {
         display: flex;
@@ -169,7 +207,7 @@ export default {
       justify-self: center;
       align-self: center;
       width: 0.5rem;
-      background-color: $grey;
+      background-color: $heart-color;
       grid-row: 2;
       grid-column: 2;
       border-radius: 10px;
@@ -196,6 +234,68 @@ export default {
     &:last-of-type {
       .about__line {
         display: none;
+      }
+    }
+  }
+
+  @include when-screen-is(lg) {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
+    background-position: center;
+    background-image: url(../../assets/map-europe.svg);
+    transition-timing-function: ease;
+    transition-property: background-position, background-size;
+    transition-duration: 1s;
+
+    .about__milestone {
+      height: 100vh;
+      display: block;
+
+      &.slimey {
+        .milestone__properties {
+          opacity: 0;
+          animation: none;
+
+          .milestone__info {
+            padding: 0;
+          }
+
+          .milestone__circle {
+            padding-bottom: 1rem;
+          }
+        }
+      }
+
+      .milestone__properties {
+        flex-direction: column-reverse !important;
+        align-items: baseline;
+      }
+
+      .about__line {
+        display: none;
+      }
+    }
+
+    &.in-view {
+      .slimey .milestone__properties {
+        opacity: 1;
+        animation: slimey 1s forwards ease-out;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        background-color: $highlight-color;
+        box-shadow: 0.5rem 0.5rem $black-ish;
+        padding: 1rem;
+      }
+
+      &.cz {
+        background-size: 6000px;
+        background-position: bottom 33% right 49%;
+      }
+      &.dk {
+        background-size: 6000px;
+        background-position: bottom 50% right 57.5%;
       }
     }
   }

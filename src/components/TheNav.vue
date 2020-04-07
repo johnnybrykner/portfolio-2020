@@ -19,7 +19,7 @@
             <div
               class="bottom"
               :style="{
-                background: `linear-gradient(90deg, #52ffb8 ${currentSubPageProgress}%, #222 ${currentSubPageProgress}%)`
+                background: `linear-gradient(90deg, #e8ebe4 ${currentSubPageProgress}%, #222 ${currentSubPageProgress}%)`
               }"
             ></div>
           </li>
@@ -188,7 +188,7 @@ export default {
           transform: translateX(42px) translateY(-55px);
 
           .top {
-            background-color: $secondary-color;
+            background-color: $highlight-color;
             transform: rotateX(4deg);
           }
 

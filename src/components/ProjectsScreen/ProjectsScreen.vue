@@ -194,19 +194,6 @@ export default {
       else return "#52ffb8";
     }
   },
-  mounted: function() {
-    const scrollObserver = new IntersectionObserver(this.changeBackground, {
-      threshold: 0
-    });
-    scrollObserver.observe(document.querySelector(".projects__container"));
-  },
-  methods: {
-    changeBackground(entries) {
-      entries[0].isIntersecting
-        ? (this.timeline = true)
-        : (this.timeline = false);
-    }
-  },
   watch: {
     getCurrentScreenScrollProgress(newValue) {
       if (this.getCurrentScreen !== 1) {
@@ -272,7 +259,7 @@ export default {
         }
 
         .project__description {
-          line-height: 1.2rem;
+          line-height: 1.3rem;
         }
       }
 
@@ -307,6 +294,10 @@ export default {
               margin-right: 1rem;
               min-width: 64px;
               height: 64px;
+            }
+
+            p {
+              line-height: 1.3rem;
             }
           }
 

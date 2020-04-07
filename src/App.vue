@@ -59,6 +59,10 @@ body {
       }
       @include when-screen-is(lg) {
         padding: 8rem;
+
+        &#about {
+          padding: 8rem 0;
+        }
       }
     }
   }

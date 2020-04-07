@@ -55,6 +55,11 @@ export default {
 .contact {
   p {
     margin-bottom: 1rem;
+    line-height: 1.3rem;
+  }
+
+  a {
+    text-decoration: none;
   }
 
   .contact__media {
@@ -73,6 +78,7 @@ export default {
 
       figcaption {
         font-size: 0.75rem;
+        color: $white-ish;
       }
     }
   }

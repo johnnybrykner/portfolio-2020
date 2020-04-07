@@ -20,11 +20,11 @@ export default {
   data: () => {
     return {
       loves: [
-        "Web Development",
-        "Learning New Technologies",
-        "Clean and Efficient Code",
-        "Elma Harmsen",
-        "Electronic Music"
+        "Web development",
+        "Learning new technologies",
+        "Clean and efficient code",
+        "Electronic music",
+        "A good collective"
       ],
       currentLove: 0
     };
