@@ -87,7 +87,7 @@ export default {
 
   .contact__media {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 
     .contact__medium {
       display: flex;

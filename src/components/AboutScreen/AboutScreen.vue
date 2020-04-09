@@ -127,23 +127,25 @@ export default {
         else line.classList.add("hidden");
       });
 
-      const headerPercentage =
-        56 / document.querySelector(".about__container").clientHeight;
-      const currentMilestone = Math.floor(
-        ((newValue / 100 - headerPercentage) *
-          document.querySelector(".about").clientHeight) /
-          this.minScreenHeight
-      );
-      const mapContainer = document.querySelector(".about");
+      if (this.getCurrentScreen === 2) {
+        const headerPercentage =
+          56 / document.querySelector(".about__container").clientHeight;
+        const currentMilestone = Math.floor(
+          ((newValue / 100 - headerPercentage) *
+            document.querySelector(".about").clientHeight) /
+            this.minScreenHeight
+        );
+        const mapContainer = document.querySelector(".about");
 
-      if (currentMilestone === 0) {
-        mapContainer.classList.add("cz");
-        mapContainer.classList.remove("dk");
-      } else if (currentMilestone === 1 || currentMilestone === 2) {
-        mapContainer.classList.add("dk");
-        mapContainer.classList.remove("cz");
-      } else {
-        mapContainer.classList.remove("cz", "dk");
+        if (currentMilestone === 0) {
+          mapContainer.classList.add("cz");
+          mapContainer.classList.remove("dk");
+        } else if (currentMilestone === 1 || currentMilestone === 2) {
+          mapContainer.classList.add("dk");
+          mapContainer.classList.remove("cz");
+        } else {
+          mapContainer.classList.remove("cz", "dk");
+        }
       }
     }
   }

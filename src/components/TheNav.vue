@@ -95,7 +95,7 @@ export default {
     document.addEventListener("click", event => {
       if (
         !event.target.closest(".the-nav__drawer") &&
-        event.target !== document.querySelector(".the-nav__toggle")
+        !event.target.closest(".the-nav__toggle")
       )
         this.collapsed = true;
     });
@@ -217,8 +217,12 @@ export default {
 
           .bottom {
             width: 100%;
-            transform: rotateX(-4deg) translateZ(6px);
+            transform: rotateX(-4deg) translateZ(4px);
             display: block;
+
+            @include when-screen-is(md) {
+              transform: rotateX(-4deg) translateZ(6px);
+            }
           }
         }
 

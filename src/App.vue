@@ -50,23 +50,25 @@ body {
 
   .screen {
     overflow: hidden;
+    padding: 2rem;
 
-    &:not(#home) {
-      padding: 2rem;
+    &#home {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
 
-      @include when-screen-is(md) {
-        padding: 4rem;
+    @include when-screen-is(md) {
+      padding: 4rem;
+    }
+    @include when-screen-is(lg) {
+      padding: 8rem;
+
+      &#about {
+        padding: 8rem 0 0 0;
       }
-      @include when-screen-is(lg) {
-        padding: 8rem;
 
-        &#about {
-          padding: 8rem 0 0 0;
-        }
-
-        &#contact {
-          padding-bottom: 0;
-        }
+      &#contact {
+        padding-bottom: 0;
       }
     }
   }
@@ -84,10 +86,12 @@ body {
 
   h1 {
     margin-bottom: 1.5rem;
-    text-align: center;
     font-size: 1.75rem;
+    padding-right: 1.5rem;
     @include when-screen-is(md) {
       font-size: 2.25rem;
+      text-align: center;
+      padding-right: 0;
     }
     @include when-screen-is(lg) {
       font-size: 3.5rem;

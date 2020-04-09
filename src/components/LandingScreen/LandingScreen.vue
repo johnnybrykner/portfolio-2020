@@ -2,7 +2,7 @@
   <section class="landing">
     <h1>My name is Vít Brykner</h1>
     <span>and I</span>
-    <the-heart withBackground class="landing__heart" />
+    <the-heart withBackground />
     <div class="landing__loves">
       <span class="landing__love">{{ loves[currentLove] }}</span>
     </div>
@@ -47,6 +47,11 @@ export default {
   flex-flow: column nowrap;
   justify-content: space-evenly;
   align-items: center;
+
+  h1 {
+    text-align: center;
+    padding: 0;
+  }
 
   span {
     text-align: center;
