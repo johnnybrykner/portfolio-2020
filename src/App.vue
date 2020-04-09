@@ -61,7 +61,11 @@ body {
         padding: 8rem;
 
         &#about {
-          padding: 8rem 0;
+          padding: 8rem 0 0 0;
+        }
+
+        &#contact {
+          padding-bottom: 0;
         }
       }
     }
@@ -113,6 +117,10 @@ body {
     @include when-screen-is(lg) {
       font-size: 1.25rem;
     }
+  }
+
+  em {
+    font-weight: bold;
   }
 }
 </style>

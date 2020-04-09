@@ -109,43 +109,41 @@ export default {
   },
   watch: {
     getCurrentScreenScrollProgress: function(newValue) {
-      if (this.getCurrentScreen === 2) {
-        document.querySelectorAll(".about__milestone").forEach(milestone => {
-          if (
-            milestone.getBoundingClientRect().y <= this.minScreenHeight &&
-            milestone.getBoundingClientRect().y >= 64
-          )
-            milestone.classList.add("slimey");
-          else milestone.classList.remove("slimey");
-        });
-        document.querySelectorAll(".about__line").forEach(line => {
-          const placement = line.getBoundingClientRect();
-          if (
-            placement.y <= this.minScreenHeight - placement.height &&
-            placement.y >= 64
-          )
-            line.classList.remove("hidden");
-          else line.classList.add("hidden");
-        });
+      document.querySelectorAll(".about__milestone").forEach(milestone => {
+        if (
+          milestone.getBoundingClientRect().y <= this.minScreenHeight &&
+          milestone.getBoundingClientRect().y >= 64
+        )
+          milestone.classList.add("slimey");
+        else milestone.classList.remove("slimey");
+      });
+      document.querySelectorAll(".about__line").forEach(line => {
+        const placement = line.getBoundingClientRect();
+        if (
+          placement.y <= this.minScreenHeight - placement.height &&
+          placement.y >= placement.height / -2
+        )
+          line.classList.remove("hidden");
+        else line.classList.add("hidden");
+      });
 
-        const headerPercentage =
-          56 / document.querySelector(".about__container").clientHeight;
-        const currentMilestone = Math.floor(
-          ((newValue / 100 - headerPercentage) *
-            document.querySelector(".about").clientHeight) /
-            this.minScreenHeight
-        );
-        const mapContainer = document.querySelector(".about");
+      const headerPercentage =
+        56 / document.querySelector(".about__container").clientHeight;
+      const currentMilestone = Math.floor(
+        ((newValue / 100 - headerPercentage) *
+          document.querySelector(".about").clientHeight) /
+          this.minScreenHeight
+      );
+      const mapContainer = document.querySelector(".about");
 
-        if (currentMilestone === 0) {
-          mapContainer.classList.add("cz");
-          mapContainer.classList.remove("dk");
-        } else if (currentMilestone === 1 || currentMilestone === 2) {
-          mapContainer.classList.add("dk");
-          mapContainer.classList.remove("cz");
-        } else {
-          mapContainer.classList.remove("cz", "dk");
-        }
+      if (currentMilestone === 0) {
+        mapContainer.classList.add("cz");
+        mapContainer.classList.remove("dk");
+      } else if (currentMilestone === 1 || currentMilestone === 2) {
+        mapContainer.classList.add("dk");
+        mapContainer.classList.remove("cz");
+      } else {
+        mapContainer.classList.remove("cz", "dk");
       }
     }
   }
@@ -241,8 +239,8 @@ export default {
   @include when-screen-is(lg) {
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: 100%;
-    background-position: center;
+    background-size: 6000px;
+    background-position: bottom 36.5% right 63%;
     background-image: url(../../assets/map-europe.svg);
     transition-timing-function: ease;
     transition-property: background-position, background-size;
@@ -290,11 +288,9 @@ export default {
       }
 
       &.cz {
-        background-size: 6000px;
         background-position: bottom 33% right 49%;
       }
       &.dk {
-        background-size: 6000px;
         background-position: bottom 50% right 57.5%;
       }
     }

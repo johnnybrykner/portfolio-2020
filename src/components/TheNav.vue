@@ -1,9 +1,11 @@
 <template>
   <div class="the-nav" :style="{ pointerEvents: collapsed ? 'none' : 'auto' }">
     <transition name="fade" mode="out-in">
-      <span class="the-nav__toggle" v-if="collapsed" @click="toggleNav"
-        >Open up!</span
-      >
+      <span class="the-nav__toggle" v-if="collapsed" @click="toggleNav">
+        <span class="toggle__line"></span>
+        <span class="toggle__line"></span>
+        <span class="toggle__line"></span>
+      </span>
       <div class="the-nav__drawer" v-else @click="toggleNav">
         <ol class="drawer__links">
           <li
@@ -143,11 +145,32 @@ export default {
   height: 100%;
 
   .the-nav__toggle {
-    font-family: "sintony", sans-serif;
     align-self: flex-end;
-    padding: 1rem;
+    padding: 2rem 1.5rem 1rem 1rem;
     pointer-events: auto;
     cursor: pointer;
+
+    &:hover {
+      .toggle__line {
+        height: 3px;
+      }
+    }
+
+    .toggle__line {
+      display: block;
+      width: 2rem;
+      height: 2px;
+      background-color: $highlight-color;
+      transition: height 0.2s ease;
+
+      &:not(:last-child) {
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    @include when-screen-is(md) {
+      padding-right: 2.5rem;
+    }
   }
   .the-nav__drawer {
     height: 100%;

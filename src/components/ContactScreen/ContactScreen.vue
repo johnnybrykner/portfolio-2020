@@ -3,11 +3,11 @@
     <h1>
       I would love you to become part of my journey!
     </h1>
-    <p>
-      For my upcoming internship starting in summer 2020 I am seeking a company
-      which could provide an awesome environment for further professional
-      growth! Are you looking for a new frontend reinforcement? Let's have a
-      talk!
+    <p class="contact__text">
+      For my upcoming internship starting in August 2020 I am seeking a company
+      which could provide an awesome environment for further professional and
+      personal growth! Are you looking for a new frontend reinforcement?
+      <em>Let's have a talk!</em>
     </p>
     <div class="contact__media">
       <a
@@ -30,6 +30,8 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   name: "contact-screen",
   data: function() {
@@ -47,15 +49,36 @@ export default {
         }
       ]
     };
+  },
+  computed: {
+    ...mapGetters(["getCurrentScreen"])
+  },
+  watch: {
+    getCurrentScreen(newValue) {
+      newValue === 3
+        ? document.querySelector(".contact__text").classList.add("highlighted")
+        : document
+            .querySelector(".contact__text")
+            .classList.remove("highlighted");
+    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
 .contact {
-  p {
-    margin-bottom: 1rem;
+  .contact__text {
+    padding: 1.5rem;
+    transition-timing-function: ease;
+    transition-property: background-color, box-shadow;
+    transition-duration: 1s;
+    margin-bottom: 6rem;
     line-height: 1.3rem;
+
+    &.highlighted {
+      background-color: $heart-color;
+      box-shadow: 0.5rem 0.5rem $black-ish;
+    }
   }
 
   a {
@@ -78,8 +101,21 @@ export default {
 
       figcaption {
         font-size: 0.75rem;
-        color: $white-ish;
+        color: $heart-color;
       }
+    }
+  }
+
+  @include when-screen-is(md) {
+    .contact__text {
+      width: 50%;
+      margin: 3rem auto;
+    }
+
+    .contact__media {
+      width: 50%;
+      padding: 1.5rem;
+      margin: 0 auto;
     }
   }
 }

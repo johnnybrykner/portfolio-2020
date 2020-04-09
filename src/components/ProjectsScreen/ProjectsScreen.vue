@@ -279,11 +279,12 @@ export default {
           .project__technology {
             display: flex;
             margin-bottom: 1.5rem;
-            padding: 1.5rem;
+            padding: 1rem;
             align-items: center;
 
             @include when-screen-is(md) {
               margin-bottom: 3rem;
+              padding: 1.5rem;
             }
 
             &:last-of-type {
