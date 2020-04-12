@@ -94,7 +94,7 @@ export default {
         Math.PI;
     },
     mapInView(entries) {
-      entries[0].isIntersecting && entries[0].intersectionRatio >= 0.15
+      entries[0].isIntersecting && entries[0].intersectionRatio >= 0.1
         ? document.querySelector(".about").classList.add("in-view")
         : document.querySelector(".about").classList.remove("in-view");
     }
@@ -112,7 +112,7 @@ export default {
       document.querySelectorAll(".about__milestone").forEach(milestone => {
         if (
           milestone.getBoundingClientRect().y <= this.minScreenHeight &&
-          milestone.getBoundingClientRect().y >= 64
+          milestone.getBoundingClientRect().y >= -this.minScreenHeight / 2 + 64
         )
           milestone.classList.add("slimey");
         else milestone.classList.remove("slimey");
@@ -133,7 +133,7 @@ export default {
         const currentMilestone = Math.floor(
           ((newValue / 100 - headerPercentage) *
             document.querySelector(".about").clientHeight) /
-            this.minScreenHeight
+            (this.minScreenHeight * 1.5)
         );
         const mapContainer = document.querySelector(".about");
 
@@ -249,7 +249,7 @@ export default {
     transition-duration: 1s;
 
     .about__milestone {
-      height: 100vh;
+      height: 150vh;
       display: block;
 
       &.slimey {

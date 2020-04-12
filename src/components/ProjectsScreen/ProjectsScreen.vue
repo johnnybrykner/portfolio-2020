@@ -233,8 +233,17 @@ export default {
   flex-flow: column nowrap;
   transition: background-color 1s ease;
 
+  h1 {
+    margin-bottom: 2rem;
+
+    @include when-screen-is(md) {
+      margin-bottom: 4rem;
+    }
+  }
+
   .projects__project {
     display: flex;
+    padding-bottom: 4rem;
 
     .project__details {
       .project__header {
@@ -259,7 +268,7 @@ export default {
         }
 
         .project__description {
-          line-height: 1.3rem;
+          line-height: 1.5rem;
         }
       }
 
@@ -298,7 +307,7 @@ export default {
             }
 
             p {
-              line-height: 1.3rem;
+              line-height: 1.5rem;
             }
           }
 

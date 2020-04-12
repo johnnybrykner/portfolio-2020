@@ -73,7 +73,7 @@ export default {
     transition-property: background-color, box-shadow;
     transition-duration: 1s;
     margin-bottom: 6rem;
-    line-height: 1.3rem;
+    line-height: 1.5rem;
 
     &.highlighted {
       background-color: $heart-color;

@@ -23,20 +23,27 @@ export default {
         "Web development",
         "Learning new technologies",
         "Clean and efficient code",
+        "A good collective",
         "Electronic music",
-        "A good collective"
+        "Good headphones",
+        "Driving a car",
+        "Oldschool RuneScape",
+        "Speaking foreign languages"
       ],
       currentLove: 0
     };
   },
   mounted: function() {
-    setInterval(() => {
-      if (this.currentLove < this.loves.length - 1) {
-        this.currentLove++;
-      } else {
-        this.currentLove = 0;
-      }
-    }, 3000);
+    setTimeout(() => {
+      this.currentLove++;
+      setInterval(() => {
+        if (this.currentLove < this.loves.length - 1) {
+          this.currentLove++;
+        } else {
+          this.currentLove = 0;
+        }
+      }, 3000);
+    }, 750);
   }
 };
 </script>
@@ -66,9 +73,6 @@ export default {
   }
 
   .landing__loves {
-    perspective: 200px;
-    perspective-origin: 125%;
-    transform-style: preserve-3d;
     width: 250px;
     display: flex;
     justify-content: center;
@@ -87,6 +91,7 @@ export default {
       width: 100%;
       background-color: $heart-color;
       padding: 1rem;
+      box-shadow: 0.5rem 0.5rem $black-ish;
       animation: illusion 3s infinite none;
     }
   }

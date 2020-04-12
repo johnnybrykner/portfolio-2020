@@ -7,6 +7,7 @@
         <span class="toggle__line"></span>
       </span>
       <div class="the-nav__drawer" v-else @click="toggleNav">
+        <span class="drawer__close"></span>
         <ol class="drawer__links">
           <li
             v-for="link in navLinks"
@@ -175,7 +176,42 @@ export default {
   .the-nav__drawer {
     height: 100%;
     text-align: center;
-    background-color: $black-ish;
+    background-color: $primary-color;
+
+    .drawer__close {
+      position: absolute;
+      z-index: 2;
+      width: 2rem;
+      height: 2rem;
+      top: 0;
+      right: 0;
+      cursor: pointer;
+      padding: 1rem;
+
+      &:hover {
+        &::before,
+        &::after {
+          width: 3px;
+        }
+      }
+
+      &::before,
+      &::after {
+        position: absolute;
+        content: "";
+        height: 2rem;
+        width: 2px;
+        background-color: $black-ish;
+        transition: width 0.2s ease;
+      }
+
+      &::before {
+        transform: rotate(45deg);
+      }
+      &::after {
+        transform: rotate(-45deg);
+      }
+    }
 
     .drawer__links {
       height: 100%;
@@ -257,8 +293,6 @@ export default {
     width: 500px;
 
     .the-nav__drawer {
-      background-color: transparent;
-
       .top {
         cursor: pointer;
 
