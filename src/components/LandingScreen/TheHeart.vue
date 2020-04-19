@@ -24,10 +24,6 @@ $height: $width * 0.9;
 .heart__container {
   height: $height;
 
-  @include when-screen-is(md) {
-    height: unset;
-  }
-
   .heart {
     width: $width;
     height: $height;

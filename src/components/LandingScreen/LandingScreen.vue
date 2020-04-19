@@ -58,6 +58,7 @@ export default {
   h1 {
     text-align: center;
     padding: 0;
+    margin: 0;
   }
 
   span {
@@ -73,7 +74,7 @@ export default {
   }
 
   .landing__loves {
-    width: 250px;
+    width: 275px;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -72,11 +72,11 @@ export default {
     transition-timing-function: ease;
     transition-property: background-color, box-shadow;
     transition-duration: 1s;
-    margin-bottom: 6rem;
     line-height: 1.5rem;
+    margin-bottom: 1.5rem;
 
     &.highlighted {
-      background-color: $heart-color;
+      background-color: $highlight-color;
       box-shadow: 0.5rem 0.5rem $black-ish;
     }
   }
@@ -87,12 +87,14 @@ export default {
 
   .contact__media {
     display: flex;
+    flex-flow: column nowrap;
     justify-content: space-evenly;
 
     .contact__medium {
       display: flex;
       flex-flow: column nowrap;
       align-items: center;
+      padding: 0.5rem;
 
       img {
         height: 64px;
@@ -101,7 +103,7 @@ export default {
 
       figcaption {
         font-size: 0.75rem;
-        color: $heart-color;
+        color: $white-ish;
       }
     }
   }
@@ -114,8 +116,14 @@ export default {
 
     .contact__media {
       width: 50%;
-      padding: 1.5rem;
+      padding: 3rem;
+      padding-top: 0.5rem;
       margin: 0 auto;
+      flex-flow: row nowrap;
+
+      .contact__medium {
+        padding: 0;
+      }
     }
   }
 }

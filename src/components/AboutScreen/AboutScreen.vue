@@ -29,6 +29,9 @@
           }"
         ></span>
       </article>
+      <div class="about__notification">
+        <h2>Scroll to find out more!</h2>
+      </div>
     </div>
   </section>
 </template>
@@ -238,6 +241,16 @@ export default {
     }
   }
 
+  .about__notification {
+    transform: scale(0);
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: $highlight-color;
+    box-shadow: 0.5rem 0.5rem $black-ish;
+    padding: 1rem;
+  }
+
   @include when-screen-is(lg) {
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -294,6 +307,10 @@ export default {
       }
       &.dk {
         background-position: bottom 50% right 57.5%;
+      }
+
+      .about__notification {
+        animation: slimey 1s forwards 2s ease-out;
       }
     }
   }

@@ -191,7 +191,7 @@ export default {
       if (this.currentProject === 0) return "#e01734";
       else if (this.currentProject === 1) return "#009de0";
       else if (this.currentProject === 2) return "#00aeef";
-      else return "#52ffb8";
+      else return "#64f5d1";
     }
   },
   watch: {
@@ -260,6 +260,17 @@ export default {
             margin-top: 0.5rem;
             height: 36px;
             max-width: 100%;
+          }
+
+          @include when-screen-is(md) {
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 100%;
+
+            .project__logo {
+              margin-top: 0;
+            }
           }
         }
 

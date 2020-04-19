@@ -244,7 +244,12 @@ export default {
 
         &.in-progress {
           color: $black-ish;
-          transform: translateX(42px) translateY(-55px);
+          transform: translateX(16px) translateY(-55px);
+          margin-top: 3rem;
+
+          @include when-screen-is(md) {
+            transform: translateX(42px) translateY(-55px);
+          }
 
           .top {
             background-color: $highlight-color;
@@ -253,12 +258,16 @@ export default {
 
           .bottom {
             width: 100%;
-            transform: rotateX(-4deg) translateZ(4px);
+            transform: rotateX(-4deg) translateZ(4px) translateX(1px);
             display: block;
 
             @include when-screen-is(md) {
               transform: rotateX(-4deg) translateZ(6px);
             }
+          }
+
+          & + li {
+            margin-top: 3rem;
           }
         }
 
