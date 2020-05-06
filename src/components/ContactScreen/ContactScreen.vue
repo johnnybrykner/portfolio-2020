@@ -99,23 +99,44 @@ export default {
       img {
         height: 64px;
         margin-bottom: 0.5rem;
+
+        @include when-screen-is(md) {
+          margin-bottom: 1rem;
+        }
+        @include when-screen-is(lg) {
+          height: 96px;
+        }
+        @include when-screen-is(xl) {
+          height: 112px;
+          margin-bottom: 1.5rem;
+        }
       }
 
       figcaption {
         font-size: 0.75rem;
         color: $white-ish;
+
+        @include when-screen-is(md) {
+          font-size: 1.1rem;
+        }
+        @include when-screen-is(lg) {
+          font-size: 1.25rem;
+        }
+        @include when-screen-is(xl) {
+          font-size: 1.7rem;
+        }
       }
     }
   }
 
   @include when-screen-is(md) {
     .contact__text {
-      width: 50%;
+      width: 70%;
       margin: 3rem auto;
     }
 
     .contact__media {
-      width: 50%;
+      width: 70%;
       padding: 3rem;
       padding-top: 0.5rem;
       margin: 0 auto;
@@ -124,6 +145,19 @@ export default {
       .contact__medium {
         padding: 0;
       }
+    }
+  }
+  @include when-screen-is(lg) {
+    .contact__text {
+      margin: 0 auto 3rem auto;
+      padding: 2rem;
+      line-height: 2rem;
+    }
+  }
+  @include when-screen-is(xl) {
+    .contact__text {
+      padding: 3rem;
+      line-height: 2.25rem;
     }
   }
 }

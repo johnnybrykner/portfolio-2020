@@ -17,7 +17,8 @@ $bilka-color: #00aeef;
 $breakpoints: (
   "sm": 0,
   "md": 768px,
-  "lg": 1280px
+  "lg": 1280px,
+  "xl": 1920px
 );
 
 @mixin when-screen-is($breakpoint) {
@@ -67,4 +68,52 @@ $breakpoints: (
   25% { box-shadow: 0 0 transparent; opacity: 0; transform: translateY(6px); }
   75% { box-shadow: 0.5rem 0.5rem $black-ish; transform: translateY(0); }
   100% { box-shadow: 0.5rem 0.5rem $black-ish; transform: translateY(0); }
+}
+
+@mixin heart-style($width) {
+  $height: $width * 0.9;
+
+  .heart__container {
+    height: $height;
+
+    .heart {
+      width: $width;
+      height: $height;
+      position: relative;
+
+      &.heart--main {
+        animation: heartbeat 3s infinite;
+      }
+
+      &.heart--background {
+        bottom: $height;
+        animation: backgroundheart 3s infinite;
+
+        &::before,
+        &::after {
+          animation: backgroundshift 15s infinite;
+        }
+      }
+
+      &::before,
+      &::after {
+        position: absolute;
+        content: "";
+        left: $width / 2;
+        top: 0;
+        width: $width / 2;
+        height: $height * 0.9;
+        background: $heart-color;
+        border-radius: $width / 2 $width / 2 0 0;
+        transform: rotate(-45deg);
+        transform-origin: 0 100%;
+      }
+
+      &::after {
+        left: 0;
+        transform: rotate(45deg);
+        transform-origin: 100% 100%;
+      }
+    }
+  }
 }

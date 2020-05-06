@@ -71,6 +71,13 @@ body {
         padding-bottom: 0;
       }
     }
+    @include when-screen-is(xl) {
+      padding: 12rem;
+
+      &#about {
+        padding: 12rem 0 0 0;
+      }
+    }
   }
 
   a {
@@ -95,6 +102,11 @@ body {
     }
     @include when-screen-is(lg) {
       font-size: 3.5rem;
+      margin-bottom: 4rem;
+    }
+    @include when-screen-is(xl) {
+      font-size: 6rem;
+      margin-bottom: 9rem;
     }
   }
 
@@ -105,6 +117,9 @@ body {
     }
     @include when-screen-is(lg) {
       font-size: 2rem;
+    }
+    @include when-screen-is(xl) {
+      font-size: 3rem;
     }
   }
 
@@ -120,6 +135,9 @@ body {
     }
     @include when-screen-is(lg) {
       font-size: 1.25rem;
+    }
+    @include when-screen-is(lg) {
+      font-size: 1.7rem;
     }
   }
 

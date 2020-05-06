@@ -76,7 +76,7 @@ export default {
     window.addEventListener("scroll", () => {
       window.clearTimeout(scrollingTimeout);
       scrollingTimeout = setTimeout(() => {
-        this.getScreensDetails(); // Swap font files to remove this
+        this.getScreensDetails();
         this.$store.commit(
           "setCurrentSreenScrollProgress",
           this.currentSubPageProgress
@@ -250,6 +250,9 @@ export default {
           @include when-screen-is(md) {
             transform: translateX(42px) translateY(-55px);
           }
+          @include when-screen-is(lg) {
+            transform: translateX(42px) translateY(-75px);
+          }
 
           .top {
             background-color: $highlight-color;
@@ -263,6 +266,9 @@ export default {
 
             @include when-screen-is(md) {
               transform: rotateX(-4deg) translateZ(6px);
+            }
+            @include when-screen-is(lg) {
+              transform: rotateX(-5deg) translateZ(8px);
             }
           }
 
@@ -299,7 +305,7 @@ export default {
   }
 
   @include when-screen-is(lg) {
-    width: 500px;
+    width: 550px;
 
     .the-nav__drawer {
       .top {

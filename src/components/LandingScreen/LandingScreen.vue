@@ -71,6 +71,9 @@ export default {
     @include when-screen-is(lg) {
       font-size: 2rem;
     }
+    @include when-screen-is(xl) {
+      font-size: 3rem;
+    }
   }
 
   .landing__loves {
@@ -82,9 +85,11 @@ export default {
     @include when-screen-is(md) {
       width: 400px;
     }
-
     @include when-screen-is(lg) {
       width: 550px;
+    }
+    @include when-screen-is(xl) {
+      width: 850px;
     }
 
     .landing__love {
@@ -94,6 +99,10 @@ export default {
       padding: 1rem;
       box-shadow: 0.5rem 0.5rem $black-ish;
       animation: illusion 3s infinite none;
+
+      @include when-screen-is(xl) {
+        padding: 1.5rem;
+      }
     }
   }
 }

@@ -233,14 +233,6 @@ export default {
   flex-flow: column nowrap;
   transition: background-color 1s ease;
 
-  h1 {
-    margin-bottom: 2rem;
-
-    @include when-screen-is(md) {
-      margin-bottom: 4rem;
-    }
-  }
-
   .projects__project {
     display: flex;
     padding-bottom: 4rem;
@@ -260,6 +252,13 @@ export default {
             margin-top: 0.5rem;
             height: 36px;
             max-width: 100%;
+
+            @include when-screen-is(lg) {
+              height: 48px;
+            }
+            @include when-screen-is(xl) {
+              height: 64px;
+            }
           }
 
           @include when-screen-is(md) {
@@ -280,6 +279,10 @@ export default {
 
         .project__description {
           line-height: 1.5rem;
+
+          @include when-screen-is(lg) {
+            line-height: 2rem;
+          }
         }
       }
 
@@ -306,26 +309,58 @@ export default {
               margin-bottom: 3rem;
               padding: 1.5rem;
             }
+            @include when-screen-is(lg) {
+              margin: 0rem;
+              padding: 2.25rem;
+            }
+            @include when-screen-is(xl) {
+              padding: 3.75rem;
+            }
 
             &:last-of-type {
               margin-bottom: 2rem;
+
+              @include when-screen-is(lg) {
+                margin: 0rem;
+              }
             }
 
             img {
               margin-right: 1rem;
               min-width: 64px;
               height: 64px;
+
+              @include when-screen-is(md) {
+                margin-right: 1.5rem;
+              }
+              @include when-screen-is(lg) {
+                margin-right: 2.25rem;
+                min-width: 96px;
+                height: 96px;
+              }
+              @include when-screen-is(lg) {
+                margin-right: 3.75rem;
+                min-width: 112px;
+                height: 112px;
+              }
             }
 
             p {
               line-height: 1.5rem;
+
+              @include when-screen-is(lg) {
+                line-height: 2rem;
+              }
             }
           }
 
           @include when-screen-is(lg) {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            column-gap: 3rem;
+            gap: 3.25rem;
+          }
+          @include when-screen-is(xl) {
+            gap: 4.75rem;
           }
         }
       }
@@ -346,6 +381,15 @@ export default {
         writing-mode: vertical-rl;
         text-orientation: upright;
         font-family: "sintony", sans-serif;
+
+        @include when-screen-is(lg) {
+          padding: 0.75rem;
+          font-size: 1.25rem;
+        }
+        @include when-screen-is(xl) {
+          padding: 1.25rem;
+          font-size: 1.7rem;
+        }
       }
 
       .timeline__end {
@@ -394,6 +438,13 @@ export default {
 
       .timeline__divider {
         width: 5px;
+
+        @include when-screen-is(lg) {
+          width: 6px;
+        }
+        @include when-screen-is(xl) {
+          width: 8px;
+        }
       }
 
       .timeline__end {
@@ -404,6 +455,11 @@ export default {
     @include when-screen-is(lg) {
       &:not(:last-of-type) {
         padding-bottom: 8rem;
+      }
+    }
+    @include when-screen-is(lg) {
+      &:not(:last-of-type) {
+        padding-bottom: 12rem;
       }
     }
   }

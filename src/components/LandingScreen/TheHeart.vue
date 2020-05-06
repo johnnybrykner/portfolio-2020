@@ -18,50 +18,16 @@ export default {
 </script>
 
 <style scoped lang="scss">
-$width: 150px;
-$height: $width * 0.9;
-
-.heart__container {
-  height: $height;
-
-  .heart {
-    width: $width;
-    height: $height;
-    position: relative;
-
-    &.heart--main {
-      animation: heartbeat 3s infinite;
-    }
-
-    &.heart--background {
-      bottom: $height;
-      animation: backgroundheart 3s infinite;
-
-      &::before,
-      &::after {
-        animation: backgroundshift 15s infinite;
-      }
-    }
-
-    &::before,
-    &::after {
-      position: absolute;
-      content: "";
-      left: $width / 2;
-      top: 0;
-      width: $width / 2;
-      height: $height * 0.9;
-      background: $heart-color;
-      border-radius: $width / 2 $width / 2 0 0;
-      transform: rotate(-45deg);
-      transform-origin: 0 100%;
-    }
-
-    &::after {
-      left: 0;
-      transform: rotate(45deg);
-      transform-origin: 100% 100%;
-    }
-  }
+@include when-screen-is(sm) {
+  @include heart-style(125px);
+}
+@include when-screen-is(md) {
+  @include heart-style(150px);
+}
+@include when-screen-is(lg) {
+  @include heart-style(200px);
+}
+@include when-screen-is(xl) {
+  @include heart-style(300px);
 }
 </style>
