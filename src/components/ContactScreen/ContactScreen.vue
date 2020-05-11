@@ -16,6 +16,7 @@
         :href="medium.link"
         target="_blank"
         rel="noopener noreferrer"
+        :class="medium.className"
       >
         <figure class="contact__medium">
           <img
@@ -40,12 +41,21 @@ export default {
         {
           name: "linkedin.svg",
           handle: "Vít Brykner",
-          link: "https://www.linkedin.com/in/v%C3%ADt-brykner-55869414b"
+          link: "https://www.linkedin.com/in/v%C3%ADt-brykner-55869414b",
+          className: "contact__linkedin"
         },
         {
           name: "mail.svg",
           handle: "johnny.brykner@gmail.com",
-          link: "mailto:johnny.brykner@gmail.com"
+          link: "mailto:johnny.brykner@gmail.com",
+          className: "contact__mail"
+        },
+        {
+          name: "resume.svg",
+          handle: "Brykner-Resume.pdf",
+          link:
+            "https://drive.google.com/file/d/1j4dBkEmr6MhOoKb5b_GGmBMZLkmC7Iga/view",
+          className: "contact__resume"
         }
       ]
     };
@@ -83,6 +93,10 @@ export default {
 
   a {
     text-decoration: none;
+
+    & > * {
+      pointer-events: none;
+    }
   }
 
   .contact__media {
@@ -94,7 +108,7 @@ export default {
       display: flex;
       flex-flow: column nowrap;
       align-items: center;
-      padding: 0.5rem;
+      padding: 1rem;
 
       img {
         height: 64px;
@@ -115,6 +129,7 @@ export default {
       figcaption {
         font-size: 0.75rem;
         color: $white-ish;
+        text-align: center;
 
         @include when-screen-is(md) {
           font-size: 1.1rem;
@@ -137,14 +152,9 @@ export default {
 
     .contact__media {
       width: 70%;
-      padding: 3rem;
       padding-top: 0.5rem;
       margin: 0 auto;
       flex-flow: row nowrap;
-
-      .contact__medium {
-        padding: 0;
-      }
     }
   }
   @include when-screen-is(lg) {
