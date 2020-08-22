@@ -1,13 +1,13 @@
 <template>
   <section class="contact">
     <h1>
-      I would love you to become part of my journey!
+      My journey has only begun...
     </h1>
     <p class="contact__text">
-      For my upcoming internship starting in August 2020 I am seeking a company
-      which could provide an awesome environment for further professional and
-      personal growth! Are you looking for a new frontend reinforcement?
-      <em>Let's have a talk!</em>
+      The upcoming internship starting in September 2020 is the next step on the
+      infinite road of professional and personal growth. I cannot wait to see
+      what the future has in store!
+      <em>Is there anything on your mind? Feel free to reach out!</em>
     </p>
     <div class="contact__media">
       <a
@@ -40,19 +40,19 @@ export default {
       media: [
         {
           name: "linkedin.svg",
-          handle: "Vít Brykner",
+          handle: "My LinkedIn",
           link: "https://www.linkedin.com/in/v%C3%ADt-brykner-55869414b",
           className: "contact__linkedin"
         },
         {
           name: "mail.svg",
-          handle: "johnny.brykner@gmail.com",
+          handle: "My Mail",
           link: "mailto:johnny.brykner@gmail.com",
           className: "contact__mail"
         },
         {
           name: "resume.svg",
-          handle: "Brykner-Resume.pdf",
+          handle: "My Resume",
           link:
             "https://drive.google.com/file/d/1j4dBkEmr6MhOoKb5b_GGmBMZLkmC7Iga/view",
           className: "contact__resume"

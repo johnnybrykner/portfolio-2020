@@ -265,9 +265,9 @@ export default {
             display: block;
 
             @include when-screen-is(md) {
-              transform: rotateX(-4deg) translateZ(6px);
+              transform: rotateX(-5deg) translateZ(5px);
             }
-            @include when-screen-is(lg) {
+            @include when-screen-is(xl) {
               transform: rotateX(-5deg) translateZ(8px);
             }
           }

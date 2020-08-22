@@ -65,10 +65,10 @@ export default {
           land: "denmark.svg"
         },
         {
-          title: "The first day of my internship at your company?",
-          date: "August 2020",
-          place: "???, ???",
-          land: "europe.svg"
+          title: "The first day of my internship at DPDK",
+          date: "28.9.2020",
+          place: "Rotterdam, The Netherlands",
+          land: "netherlands.svg"
         }
       ]
     };
@@ -255,7 +255,7 @@ export default {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 6000px;
-    background-position: bottom 36.5% right 63%;
+    background-position: bottom 38.5% right 64%;
     background-image: url(../../assets/map-europe.svg);
     transition-timing-function: ease;
     transition-property: background-position, background-size;

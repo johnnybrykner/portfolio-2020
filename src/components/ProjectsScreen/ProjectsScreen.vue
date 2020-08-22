@@ -74,7 +74,7 @@ export default {
             {
               image: "html.png",
               text:
-                "The site's markup consists of multiple html files linked together"
+                "The site's markup consists of multiple HTML files linked together"
             },
             {
               image: "sass.png",
@@ -112,7 +112,7 @@ export default {
             {
               image: "vue.png",
               text:
-                "The stack revolves around Vue.js, a JavaScript framework encapsulating all html, css, and JavaScript"
+                "The stack revolves around Vue.js, a JavaScript framework encapsulating all HTML, CSS, and JavaScript"
             },
             {
               image: "nuxt.png",
@@ -144,13 +144,13 @@ export default {
           subtitle:
             "New e-commere platform for one of the oldest players in the Danish retail game.",
           description:
-            "Bilka is the biggest Danish hypermarket chain offering wide range of product categories from bikes through furniture all the way to electronics. With its original e-commerce platform being built more than ten years ago, the time has come for a new representative platform to drive the business in today's online world. As part of the frontend team, since the very beginning of the project in March 2019 to its official launch in March 2020, I took part in developing the user interface of the platform.",
+            "Bilka is the biggest Danish hypermarket chain offering wide range of product categories from bikes through furniture all the way to electronics. With its original e-commerce platform being built more than ten years ago, the time has come for a new representative platform to drive the business in today's online world. As part of the frontend team, since the very beginning of the project in March 2019 to its official launch in May 2020, I took part in developing the user interface of the platform.",
           logo: "bilka.svg",
           technologies: [
             {
               image: "vue.png",
               text:
-                "The stack revolves around Vue.js, a JavaScript framework encapsulating all html, css, and JavaScript"
+                "The stack revolves around Vue.js, a JavaScript framework encapsulating all HTML, CSS, and JavaScript"
             },
             {
               image: "nuxt.png",
@@ -174,7 +174,7 @@ export default {
             }
           ],
           start: "Mar 2019",
-          end: "Now"
+          end: "Sep 2020"
         }
       ]
     };
