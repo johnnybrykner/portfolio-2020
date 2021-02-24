@@ -14,7 +14,7 @@
             :key="link.title"
             :class="{
               completed: link.position < currentSubPage,
-              'in-progress': link.position === currentSubPage
+              'in-progress': link.position === currentSubPage,
             }"
             @click="goToScreen(link.position)"
           >
@@ -22,7 +22,7 @@
             <div
               class="bottom"
               :style="{
-                background: `linear-gradient(90deg, #e8ebe4 ${currentSubPageProgress}%, #222 ${currentSubPageProgress}%)`
+                background: `linear-gradient(90deg, #e8ebe4 ${currentSubPageProgress}%, #222 ${currentSubPageProgress}%)`,
               }"
             ></div>
           </li>
@@ -35,23 +35,23 @@
 <script>
 export default {
   name: "the-nav",
-  data: function() {
+  data: function () {
     return {
       collapsed: true,
       currentSubPage: 0,
       navLinks: [],
-      howDeepIntoCurrentSubPage: this.minScreenHeight
+      howDeepIntoCurrentSubPage: this.minScreenHeight,
     };
   },
   props: {
     minScreenHeight: {
       required: true,
-      type: Number
-    }
+      type: Number,
+    },
   },
   computed: {
     individualScreenHeights() {
-      return this.navLinks.map(link => link.height);
+      return this.navLinks.map((link) => link.height);
     },
     currentSubPageProgress() {
       return (
@@ -66,9 +66,9 @@ export default {
           this.individualScreenHeights[this.currentSubPage]) *
         100
       );
-    }
+    },
   },
-  mounted: function() {
+  mounted: function () {
     let scrollingTimeout = null;
 
     this.getScreensDetails();
@@ -93,7 +93,7 @@ export default {
       } while (position > 0 && i < this.navLinks.length);
     });
 
-    document.addEventListener("click", event => {
+    document.addEventListener("click", (event) => {
       if (
         !event.target.closest(".the-nav__drawer") &&
         !event.target.closest(".the-nav__toggle")
@@ -112,7 +112,7 @@ export default {
       }
       window.scrollTo({
         top: pixelAmount,
-        behavior: "smooth"
+        behavior: "smooth",
       });
     },
     getScreensDetails() {
@@ -121,16 +121,16 @@ export default {
         this.navLinks.push({
           position,
           title: screen.id[0].toUpperCase() + screen.id.slice(1),
-          height: screen.clientHeight
+          height: screen.clientHeight,
         });
       });
-    }
+    },
   },
   watch: {
-    currentSubPage: function(newValue) {
+    currentSubPage: function (newValue) {
       this.$store.commit("setCurrentScreen", newValue);
-    }
-  }
+    },
+  },
 };
 </script>
 

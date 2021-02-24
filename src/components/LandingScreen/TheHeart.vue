@@ -11,9 +11,9 @@ export default {
   props: {
     withBackground: {
       type: Boolean,
-      default: false
-    }
-  }
+      default: false,
+    },
+  },
 };
 </script>
 

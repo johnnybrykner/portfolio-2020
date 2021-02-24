@@ -58,7 +58,7 @@ import { mapGetters } from "vuex";
 
 export default {
   name: "projects-screen",
-  data: function() {
+  data: function () {
     return {
       timeline: false,
       currentProject: null,
@@ -74,31 +74,31 @@ export default {
             {
               image: "html.png",
               text:
-                "The site's markup consists of multiple HTML files linked together"
+                "The site's markup consists of multiple HTML files linked together",
             },
             {
               image: "sass.png",
               text:
-                "Styling is done with a CSS extension - SCSS - allowing for more efficient syntax and stylesheets"
+                "Styling is done with a CSS extension - SCSS - allowing for more efficient syntax and stylesheets",
             },
             {
               image: "js.png",
               text:
-                "The behavioral layer of the website is controlled by vanilla JavaScript"
+                "The behavioral layer of the website is controlled by vanilla JavaScript",
             },
             {
               image: "bootstrap.png",
               text:
-                "Bootstrap is used as the UI framework of this project, scaffolding layouts and adding helpful style classes"
+                "Bootstrap is used as the UI framework of this project, scaffolding layouts and adding helpful style classes",
             },
             {
               image: "wordpress.png",
               text:
-                "WordPress CMS is used headlessly to allow the organization's members to manage content easily without touching the code"
-            }
+                "WordPress CMS is used headlessly to allow the organization's members to manage content easily without touching the code",
+            },
           ],
           start: "Nov 2018",
-          end: "Mar 2019"
+          end: "Mar 2019",
         },
         {
           title: "bilkatogo.dk",
@@ -112,31 +112,31 @@ export default {
             {
               image: "vue.png",
               text:
-                "The stack revolves around Vue.js, a JavaScript framework encapsulating all HTML, CSS, and JavaScript"
+                "The stack revolves around Vue.js, a JavaScript framework encapsulating all HTML, CSS, and JavaScript",
             },
             {
               image: "nuxt.png",
               text:
-                "Vue framework Nuxt is used to make the development process more efficient, providing a helpful layer of abstraction"
+                "Vue framework Nuxt is used to make the development process more efficient, providing a helpful layer of abstraction",
             },
             {
               image: "js.png",
               text:
-                "BilkaToGo is made with the JavaScript, as the project began before the popularity growth of TypeScript"
+                "BilkaToGo is made with the JavaScript, as the project began before the popularity growth of TypeScript",
             },
             {
               image: "bootstrap.png",
               text:
-                "Bootstrap is used as UI framework for consistent layout and spacing helpers across the codebase"
+                "Bootstrap is used as UI framework for consistent layout and spacing helpers across the codebase",
             },
             {
               image: "jest.png",
               text:
-                "A set of unit tests using the Jest testing framework makes sure the core functionality can be trusted not to break"
-            }
+                "A set of unit tests using the Jest testing framework makes sure the core functionality can be trusted not to break",
+            },
           ],
           start: "Jan 2019",
-          end: "Mar 2019"
+          end: "Mar 2019",
         },
         {
           title: "bilka.dk",
@@ -150,40 +150,40 @@ export default {
             {
               image: "vue.png",
               text:
-                "The stack revolves around Vue.js, a JavaScript framework encapsulating all HTML, CSS, and JavaScript"
+                "The stack revolves around Vue.js, a JavaScript framework encapsulating all HTML, CSS, and JavaScript",
             },
             {
               image: "nuxt.png",
               text:
-                "Nuxt's main role in the project is Static Site Generation, allowing for a very performant frontend with little load time"
+                "Nuxt's main role in the project is Static Site Generation, allowing for a very performant frontend with little load time",
             },
             {
               image: "ts.png",
               text:
-                "TypeScript is the main language used within the codebase, bringing type safety and JavaScript powers together"
+                "TypeScript is the main language used within the codebase, bringing type safety and JavaScript powers together",
             },
             {
               image: "vuetify.webp",
               text:
-                "Vuetify is the UI framework of choice, bringing Google's material design into the project with a plethora of UI components"
+                "Vuetify is the UI framework of choice, bringing Google's material design into the project with a plethora of UI components",
             },
             {
               image: "jest.png",
               text:
-                "The Bilka codebase is thoroughly tested with a vast suite of unit tests testing all the components' functionality"
-            }
+                "The Bilka codebase is thoroughly tested with a vast suite of unit tests testing all the components' functionality",
+            },
           ],
           start: "Mar 2019",
-          end: "Sep 2020"
-        }
-      ]
+          end: "Sep 2020",
+        },
+      ],
     };
   },
   props: {
     minScreenHeight: {
       required: true,
-      type: Number
-    }
+      type: Number,
+    },
   },
   computed: {
     ...mapGetters(["getCurrentScreenScrollProgress", "getCurrentScreen"]),
@@ -192,7 +192,7 @@ export default {
       else if (this.currentProject === 1) return "#009de0";
       else if (this.currentProject === 2) return "#00aeef";
       else return "#64f5d1";
-    }
+    },
   },
   watch: {
     getCurrentScreenScrollProgress(newValue) {
@@ -222,8 +222,8 @@ export default {
       document
         .querySelectorAll(".projects__project")
         [newValue].classList.add("active");
-    }
-  }
+    },
+  },
 };
 </script>
 

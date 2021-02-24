@@ -18,7 +18,7 @@ $breakpoints: (
   "sm": 0,
   "md": 768px,
   "lg": 1280px,
-  "xl": 1920px
+  "xl": 2560px
 );
 
 @mixin when-screen-is($breakpoint) {

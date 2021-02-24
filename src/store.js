@@ -6,7 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     currentScreen: 0,
-    currentScreenScrollProgress: 0
+    currentScreenScrollProgress: 0,
   },
   mutations: {
     setCurrentScreen(state, newScreen) {
@@ -15,7 +15,7 @@ export default new Vuex.Store({
     },
     setCurrentSreenScrollProgress(state, newAmount) {
       state.currentScreenScrollProgress = newAmount;
-    }
+    },
   },
   getters: {
     getCurrentScreenScrollProgress(state) {
@@ -23,6 +23,6 @@ export default new Vuex.Store({
     },
     getCurrentScreen(state) {
       return state.currentScreen;
-    }
-  }
+    },
+  },
 });

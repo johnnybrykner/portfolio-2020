@@ -34,11 +34,11 @@ export default {
     ProjectsScreen,
     AboutScreen,
     ContactScreen,
-    TheNav
+    TheNav,
   },
   computed: {
-    minScreenHeight: () => window.innerHeight
-  }
+    minScreenHeight: () => window.innerHeight,
+  },
 };
 </script>
 

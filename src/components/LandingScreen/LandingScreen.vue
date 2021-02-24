@@ -15,7 +15,7 @@ import TheHeart from "@/components/LandingScreen/TheHeart.vue";
 export default {
   name: "landing-screen",
   components: {
-    TheHeart
+    TheHeart,
   },
   data: () => {
     return {
@@ -28,12 +28,12 @@ export default {
         "Good headphones",
         "Driving a car",
         "Oldschool RuneScape",
-        "Speaking foreign languages"
+        "Speaking foreign languages",
       ],
-      currentLove: 0
+      currentLove: 0,
     };
   },
-  mounted: function() {
+  mounted: function () {
     setTimeout(() => {
       this.currentLove++;
       setInterval(() => {
@@ -44,7 +44,7 @@ export default {
         }
       }, 3000);
     }, 750);
-  }
+  },
 };
 </script>
 

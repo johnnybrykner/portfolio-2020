@@ -1,8 +1,6 @@
 <template>
   <section class="contact">
-    <h1>
-      My journey has only begun...
-    </h1>
+    <h1>My journey has only begun...</h1>
     <p class="contact__text">
       The upcoming internship starting in September 2020 is the next step on the
       infinite road of professional and personal growth. I cannot wait to see
@@ -35,33 +33,33 @@ import { mapGetters } from "vuex";
 
 export default {
   name: "contact-screen",
-  data: function() {
+  data: function () {
     return {
       media: [
         {
           name: "linkedin.svg",
           handle: "My LinkedIn",
           link: "https://www.linkedin.com/in/v%C3%ADt-brykner-55869414b",
-          className: "contact__linkedin"
+          className: "contact__linkedin",
         },
         {
           name: "mail.svg",
           handle: "My Mail",
           link: "mailto:johnny.brykner@gmail.com",
-          className: "contact__mail"
+          className: "contact__mail",
         },
         {
           name: "resume.svg",
           handle: "My Resume",
           link:
             "https://drive.google.com/file/d/1j4dBkEmr6MhOoKb5b_GGmBMZLkmC7Iga/view",
-          className: "contact__resume"
-        }
-      ]
+          className: "contact__resume",
+        },
+      ],
     };
   },
   computed: {
-    ...mapGetters(["getCurrentScreen"])
+    ...mapGetters(["getCurrentScreen"]),
   },
   watch: {
     getCurrentScreen(newValue) {
@@ -70,8 +68,8 @@ export default {
         : document
             .querySelector(".contact__text")
             .classList.remove("highlighted");
-    }
-  }
+    },
+  },
 };
 </script>
 

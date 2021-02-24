@@ -25,7 +25,7 @@
             transform:
               index % 2 === 0
                 ? `rotate(-${lineRotation}deg)`
-                : `rotate(${lineRotation}deg)`
+                : `rotate(${lineRotation}deg)`,
           }"
         ></span>
       </article>
@@ -41,7 +41,7 @@ import { mapGetters } from "vuex";
 
 export default {
   name: "about-screen",
-  data: function() {
+  data: function () {
     return {
       lineLength: 0,
       lineRotation: 0,
@@ -50,37 +50,37 @@ export default {
           title: "Born",
           date: "23.4.1998",
           place: "Jičín, Czech Republic",
-          land: "czech-republic.svg"
+          land: "czech-republic.svg",
         },
         {
           title: "Kicked off my bachelor degree in web development",
           date: "28.8.2017",
           place: "Aarhus, Denmark",
-          land: "denmark.svg"
+          land: "denmark.svg",
         },
         {
           title: "Started my internship at Salling Group",
           date: "7.1.2019",
           place: "Aarhus, Denmark",
-          land: "denmark.svg"
+          land: "denmark.svg",
         },
         {
           title: "The first day of my internship at DPDK",
           date: "28.9.2020",
           place: "Rotterdam, The Netherlands",
-          land: "netherlands.svg"
-        }
-      ]
+          land: "netherlands.svg",
+        },
+      ],
     };
   },
   props: {
     minScreenHeight: {
       required: true,
-      type: Number
-    }
+      type: Number,
+    },
   },
   computed: {
-    ...mapGetters(["getCurrentScreenScrollProgress", "getCurrentScreen"])
+    ...mapGetters(["getCurrentScreenScrollProgress", "getCurrentScreen"]),
   },
   methods: {
     calculateLineProperties() {
@@ -100,19 +100,19 @@ export default {
       entries[0].isIntersecting && entries[0].intersectionRatio >= 0.1
         ? document.querySelector(".about").classList.add("in-view")
         : document.querySelector(".about").classList.remove("in-view");
-    }
+    },
   },
-  mounted: function() {
+  mounted: function () {
     const scrollObserver = new IntersectionObserver(this.mapInView, {
-      threshold: [0, 0.05, 0.1, 0.15]
+      threshold: [0, 0.05, 0.1, 0.15],
     });
     scrollObserver.observe(document.querySelector(".about"));
     this.calculateLineProperties();
     window.addEventListener("resize", this.calculateLineProperties);
   },
   watch: {
-    getCurrentScreenScrollProgress: function(newValue) {
-      document.querySelectorAll(".about__milestone").forEach(milestone => {
+    getCurrentScreenScrollProgress: function (newValue) {
+      document.querySelectorAll(".about__milestone").forEach((milestone) => {
         if (
           milestone.getBoundingClientRect().y <= this.minScreenHeight &&
           milestone.getBoundingClientRect().y >= -this.minScreenHeight / 2 + 64
@@ -120,7 +120,7 @@ export default {
           milestone.classList.add("slimey");
         else milestone.classList.remove("slimey");
       });
-      document.querySelectorAll(".about__line").forEach(line => {
+      document.querySelectorAll(".about__line").forEach((line) => {
         const placement = line.getBoundingClientRect();
         if (
           placement.y <= this.minScreenHeight - placement.height &&
@@ -150,8 +150,8 @@ export default {
           mapContainer.classList.remove("cz", "dk");
         }
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
