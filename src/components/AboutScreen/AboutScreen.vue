@@ -66,9 +66,15 @@ export default {
         },
         {
           title: "The first day of my internship at DPDK",
-          date: "28.9.2020",
+          date: "29.9.2020",
           place: "Rotterdam, The Netherlands",
           land: "netherlands.svg",
+        },
+        {
+          title: "The envisioned start of my quest for the master's degree",
+          date: "September 2021",
+          place: "???",
+          land: "europe.svg",
         },
       ],
     };

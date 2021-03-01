@@ -2,9 +2,12 @@
   <section class="contact">
     <h1>My journey has only begun...</h1>
     <p class="contact__text">
-      The upcoming internship starting in September 2020 is the next step on the
-      infinite road of professional and personal growth. I cannot wait to see
-      what the future has in store!
+      I am currently in the process of applying for software engineering
+      master's degree programmes in various EU countries.
+      <br />
+      This will hopefully be my next step on the infinite road of professional
+      and personal growth. I cannot wait to see what the future has in store!
+      <br />
       <em>Is there anything on your mind? Feel free to reach out!</em>
     </p>
     <div class="contact__media">
@@ -52,7 +55,7 @@ export default {
           name: "resume.svg",
           handle: "My Resume",
           link:
-            "https://drive.google.com/file/d/1j4dBkEmr6MhOoKb5b_GGmBMZLkmC7Iga/view",
+            "https://drive.google.com/file/d/1qglsT77alXjygYa77rN5HU8UcxIEJIh5/view?usp=sharing",
           className: "contact__resume",
         },
       ],
@@ -146,6 +149,10 @@ export default {
     .contact__text {
       width: 70%;
       margin: 3rem auto;
+
+      em {
+        display: block;
+      }
     }
 
     .contact__media {

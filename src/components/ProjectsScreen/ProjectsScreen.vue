@@ -60,92 +60,17 @@ export default {
   name: "projects-screen",
   data: function () {
     return {
-      timeline: false,
       currentProject: null,
       projects: [
         {
-          title: "skif-patria.pl",
-          url: "https://skif-patria.pl",
-          subtitle: "Web presence for a Polish non-profit organization.",
-          description:
-            "Patria is a Polish cultural movement based in the southern city of Katowice. Their goal is to promote the region's rich music and dance traditions. As our school project, two Polish classmates and I helped the organization advertise themselves by creating a web presence with its content easily manageable using a headless version of the user-friendly WordPress CMS.",
-          logo: "patria.png",
-          technologies: [
-            {
-              image: "html.png",
-              text:
-                "The site's markup consists of multiple HTML files linked together",
-            },
-            {
-              image: "sass.png",
-              text:
-                "Styling is done with a CSS extension - SCSS - allowing for more efficient syntax and stylesheets",
-            },
-            {
-              image: "js.png",
-              text:
-                "The behavioral layer of the website is controlled by vanilla JavaScript",
-            },
-            {
-              image: "bootstrap.png",
-              text:
-                "Bootstrap is used as the UI framework of this project, scaffolding layouts and adding helpful style classes",
-            },
-            {
-              image: "wordpress.png",
-              text:
-                "WordPress CMS is used headlessly to allow the organization's members to manage content easily without touching the code",
-            },
-          ],
-          start: "Nov 2018",
-          end: "Mar 2019",
-        },
-        {
-          title: "bilkatogo.dk",
-          url: "https://bilkatogo.dk",
-          subtitle:
-            "Convenient way of grocery shopping in the biggest Danish hypermarket chain.",
-          description:
-            "BilkaToGo has been a hit of the Danish food e-commerce, with the monthly revenue exceeding anyone's expectations. During my internship at Salling Group, the mother company of the Bilka chain, I helped mantain the online service in its post-launch phase, addressing the users' feedback and small feature requests given to us through Jira.",
-          logo: "togo.svg",
-          technologies: [
-            {
-              image: "vue.png",
-              text:
-                "The stack revolves around Vue.js, a JavaScript framework encapsulating all HTML, CSS, and JavaScript",
-            },
-            {
-              image: "nuxt.png",
-              text:
-                "Vue framework Nuxt is used to make the development process more efficient, providing a helpful layer of abstraction",
-            },
-            {
-              image: "js.png",
-              text:
-                "BilkaToGo is made with the JavaScript, as the project began before the popularity growth of TypeScript",
-            },
-            {
-              image: "bootstrap.png",
-              text:
-                "Bootstrap is used as UI framework for consistent layout and spacing helpers across the codebase",
-            },
-            {
-              image: "jest.png",
-              text:
-                "A set of unit tests using the Jest testing framework makes sure the core functionality can be trusted not to break",
-            },
-          ],
-          start: "Jan 2019",
-          end: "Mar 2019",
-        },
-        {
           title: "bilka.dk",
-          url: "https://ny.bilka.dk",
+          url: "https://bilka.dk",
           subtitle:
             "New e-commere platform for one of the oldest players in the Danish retail game.",
           description:
-            "Bilka is the biggest Danish hypermarket chain offering wide range of product categories from bikes through furniture all the way to electronics. With its original e-commerce platform being built more than ten years ago, the time has come for a new representative platform to drive the business in today's online world. As part of the frontend team, since the very beginning of the project in March 2019 to its official launch in May 2020, I took part in developing the user interface of the platform.",
+            "Bilka is the biggest Danish hypermarket chain offering wide range of product categories from bikes through furniture all the way to electronics. With its original e-commerce platform being built more than ten years ago, the time was ripe for a new representative platform to drive the business in today's online world. As part of the frontend team, since the very beginning of the project in March 2019 to its official launch in May 2020, I took part in developing the user interface of the platform.",
           logo: "bilka.svg",
+          color: "#00aeef",
           technologies: [
             {
               image: "vue.png",
@@ -155,7 +80,7 @@ export default {
             {
               image: "nuxt.png",
               text:
-                "Nuxt's main role in the project is Static Site Generation, allowing for a very performant frontend with little load time",
+                "Nuxt's main role in the project is that of a static site generator, allowing for an accessible and very performant frontend with small load times",
             },
             {
               image: "ts.png",
@@ -165,16 +90,55 @@ export default {
             {
               image: "vuetify.webp",
               text:
-                "Vuetify is the UI framework of choice, bringing Google's material design into the project with a plethora of UI components",
+                "Vuetify is the UI framework of choice, offering Google's material design to the project through a plethora of UI components",
             },
             {
               image: "jest.png",
               text:
-                "The Bilka codebase is thoroughly tested with a vast suite of unit tests testing all the components' functionality",
+                "The Bilka codebase is thoroughly tested with a vast suite of unit tests ensuring all the components' functionality",
             },
           ],
           start: "Mar 2019",
           end: "Sep 2020",
+        },
+        {
+          title: "feum-ticketing.dk",
+          url: "https://feum-ticketing.dk",
+          subtitle:
+            "New platform for a non-profit underground electronic music movement from Aarhus, Denmark.",
+          description:
+            "FEUM's mission is to bring together electronic music fans from all over Denmark, and with the help of Aarhus municipality they organize culturally rich events. As my bachelor project I helped bring their new platform to life, which allows for online ticket presale and seamless content maintenance through a CMS.",
+          logo: "feum.svg",
+          color: "#f39080",
+          technologies: [
+            {
+              image: "vue.png",
+              text:
+                "The stack revolves around Vue.js, a JavaScript framework encapsulating all HTML, CSS, and JavaScript",
+            },
+            {
+              image: "gridsome.png",
+              text:
+                "On build Gridsome generates a static page for every view, which get dynamically hydrated when the browser loads them, making the frontend blazing fast and accessible",
+            },
+            {
+              image: "js.png",
+              text:
+                "The behavioral layer of the website is controlled by Vue through JavaScript",
+            },
+            {
+              image: "netlify-functions.svg",
+              text:
+                "The site's ticketing backend is serverless, and utilizes the Netlify-operated serverless functions to communicate with third party services and the database",
+            },
+            {
+              image: "netlify-cms.svg",
+              text:
+                "Netlify CMS is headless, and allows the organization's members to manage the events' content easily without the need to alter any code",
+            },
+          ],
+          start: "Dec 2020",
+          end: "Now",
         },
       ],
     };
@@ -188,16 +152,19 @@ export default {
   computed: {
     ...mapGetters(["getCurrentScreenScrollProgress", "getCurrentScreen"]),
     getCurrentColor() {
-      if (this.currentProject === 0) return "#e01734";
-      else if (this.currentProject === 1) return "#009de0";
-      else if (this.currentProject === 2) return "#00aeef";
-      else return "#64f5d1";
+      return this.currentProject !== null
+        ? this.projects[this.currentProject].color
+        : "#64f5d1";
     },
   },
   watch: {
     getCurrentScreenScrollProgress(newValue) {
-      if (this.getCurrentScreen !== 1) {
-        this.currentProject = 2;
+      if (this.getCurrentScreen === 0) {
+        this.currentProject = null;
+        return;
+      }
+      if (this.getCurrentScreen === 2) {
+        this.currentProject = this.projects.length - 1;
         return;
       }
       let percentages = [0.1];
@@ -219,9 +186,11 @@ export default {
           .querySelectorAll(".projects__project")
           [i].classList.remove("active");
       }
-      document
-        .querySelectorAll(".projects__project")
-        [newValue].classList.add("active");
+      if (newValue !== null) {
+        document
+          .querySelectorAll(".projects__project")
+          [newValue].classList.add("active");
+      }
     },
   },
 };
@@ -250,7 +219,7 @@ export default {
 
           .project__logo {
             margin-top: 0.5rem;
-            height: 36px;
+            height: 32px;
             max-width: 100%;
 
             @include when-screen-is(lg) {
@@ -300,14 +269,15 @@ export default {
           flex-flow: column nowrap;
 
           .project__technology {
-            display: flex;
+            display: block;
             margin-bottom: 1.5rem;
             padding: 1rem;
-            align-items: center;
 
             @include when-screen-is(md) {
               margin-bottom: 3rem;
               padding: 1.5rem;
+              align-items: center;
+              display: flex;
             }
             @include when-screen-is(lg) {
               margin: 0rem;
@@ -326,12 +296,14 @@ export default {
             }
 
             img {
-              margin-right: 1rem;
+              margin-bottom: 0.5rem;
               min-width: 64px;
               height: 64px;
+              max-width: 128px;
 
               @include when-screen-is(md) {
                 margin-right: 1.5rem;
+                margin-bottom: 0;
               }
               @include when-screen-is(lg) {
                 margin-right: 2.25rem;
