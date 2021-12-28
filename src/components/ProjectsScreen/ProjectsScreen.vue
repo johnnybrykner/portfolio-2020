@@ -109,7 +109,7 @@ export default {
           description:
             "FEUM's mission is to bring together electronic music fans from all over Denmark, and with the help of Aarhus municipality they organize culturally rich events. As my bachelor project I helped bring their new platform to life, which allows for online ticket presale and seamless content maintenance through a CMS.",
           logo: "feum.svg",
-          color: "#f39080",
+          color: "#658be5",
           technologies: [
             {
               image: "vue.png",
@@ -154,7 +154,7 @@ export default {
     getCurrentColor() {
       return this.currentProject !== null
         ? this.projects[this.currentProject].color
-        : "#64f5d1";
+        : "#f8f9fa";
     },
   },
   watch: {

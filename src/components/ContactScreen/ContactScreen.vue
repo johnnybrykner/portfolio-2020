@@ -2,11 +2,11 @@
   <section class="contact">
     <h1>My journey has only begun...</h1>
     <p class="contact__text">
-      I am currently in the process of applying for software engineering
-      master's degree programmes in various EU countries.
+      My 2022 will be in the name of tackling all of the challenges on the road
+      towards software engineering master's degree.
       <br />
-      This will hopefully be my next step on the infinite road of professional
-      and personal growth. I cannot wait to see what the future has in store!
+      This is my next step on the infinite road of professional and personal
+      growth. I cannot wait to see what the future has in store!
       <br />
       <em>Is there anything on your mind? Feel free to reach out!</em>
     </p>
@@ -55,7 +55,7 @@ export default {
           name: "resume.svg",
           handle: "My Resume",
           link:
-            "https://drive.google.com/file/d/1qglsT77alXjygYa77rN5HU8UcxIEJIh5/view?usp=sharing",
+            "https://drive.google.com/file/d/1haXwYGQQrCx3nsYdi6Tt9cuvi86BMqug/view?usp=sharing",
           className: "contact__resume",
         },
       ],
@@ -129,7 +129,6 @@ export default {
 
       figcaption {
         font-size: 0.75rem;
-        color: $white-ish;
         text-align: center;
 
         @include when-screen-is(md) {

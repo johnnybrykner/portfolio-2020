@@ -56,13 +56,13 @@ export default {
           title: "Kicked off my bachelor degree in web development",
           date: "28.8.2017",
           place: "Aarhus, Denmark",
-          land: "denmark.svg",
+          land: "denmark.png",
         },
         {
           title: "Started my internship at Salling Group",
           date: "7.1.2019",
           place: "Aarhus, Denmark",
-          land: "denmark.svg",
+          land: "denmark.png",
         },
         {
           title: "The first day of my internship at DPDK",
@@ -71,10 +71,11 @@ export default {
           land: "netherlands.svg",
         },
         {
-          title: "The envisioned start of my quest for the master's degree",
-          date: "September 2021",
-          place: "???",
-          land: "europe.svg",
+          title:
+            "The start of my quest for master's degree in software engineering",
+          date: "31.8.2021",
+          place: "Lappeenranta, Finland",
+          land: "finland.png",
         },
       ],
     };
@@ -146,14 +147,24 @@ export default {
         );
         const mapContainer = document.querySelector(".about");
 
-        if (currentMilestone === 0) {
-          mapContainer.classList.add("cz");
-          mapContainer.classList.remove("dk");
-        } else if (currentMilestone === 1 || currentMilestone === 2) {
-          mapContainer.classList.add("dk");
-          mapContainer.classList.remove("cz");
-        } else {
-          mapContainer.classList.remove("cz", "dk");
+        switch (currentMilestone) {
+          case 0:
+            mapContainer.classList.remove("dk");
+            mapContainer.classList.add("cz");
+            break;
+          case 1:
+            mapContainer.classList.remove("cz");
+            mapContainer.classList.add("dk");
+            break;
+          case 2:
+            mapContainer.classList.add("dk");
+            break;
+          case 3:
+            mapContainer.classList.remove("dk", "fi");
+            break;
+          case 4:
+            mapContainer.classList.add("fi");
+            break;
         }
       }
     },
@@ -261,7 +272,7 @@ export default {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 6000px;
-    background-position: bottom 38.5% right 64%;
+    background-position: bottom 38.5% right 68%;
     background-image: url(../../assets/map-europe.svg);
     transition-timing-function: ease;
     transition-property: background-position, background-size;
@@ -309,10 +320,13 @@ export default {
       }
 
       &.cz {
-        background-position: bottom 33% right 49%;
+        background-position: bottom 33% right 47.5%;
       }
       &.dk {
-        background-position: bottom 50% right 57.5%;
+        background-position: bottom 51% right 59%;
+      }
+      &.fi {
+        background-position: bottom 71.5% right 34%;
       }
 
       .about__notification {

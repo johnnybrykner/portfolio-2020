@@ -22,7 +22,7 @@
             <div
               class="bottom"
               :style="{
-                background: `linear-gradient(90deg, #e8ebe4 ${currentSubPageProgress}%, #222 ${currentSubPageProgress}%)`,
+                background: `linear-gradient(90deg, #adb5bd ${currentSubPageProgress}%, #e8ebe4 ${currentSubPageProgress}%)`,
               }"
             ></div>
           </li>
@@ -221,7 +221,7 @@ export default {
       li {
         flex-basis: 25%;
         font-family: "sintony", sans-serif;
-        color: $white-ish;
+        color: $quinary-color;
         transition: all 0.5s;
         perspective: 200px;
         perspective-origin: 125%;
