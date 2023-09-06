@@ -77,6 +77,12 @@ export default {
           place: "Lappeenranta, Finland",
           land: "finland.png",
         },
+        {
+          title: "My move to Sweden in pursuit of full time employment",
+          date: "31.8.2023",
+          place: "Uppsala, Sweden",
+          land: "sweden.png",
+        },
       ],
     };
   },
@@ -158,12 +164,19 @@ export default {
             break;
           case 2:
             mapContainer.classList.add("dk");
+            mapContainer.classList.remove("nl");
             break;
           case 3:
+            mapContainer.classList.add("nl");
             mapContainer.classList.remove("dk", "fi");
             break;
           case 4:
             mapContainer.classList.add("fi");
+            mapContainer.classList.remove("nl", "se");
+            break;
+          case 5:
+            mapContainer.classList.add("se");
+            mapContainer.classList.remove("fi");
             break;
         }
       }
@@ -272,7 +285,7 @@ export default {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 6000px;
-    background-position: bottom 38.5% right 68%;
+    background-position: bottom 45% right 45%;
     background-image: url(../../assets/map-europe.svg);
     transition-timing-function: ease;
     transition-property: background-position, background-size;
@@ -320,13 +333,23 @@ export default {
       }
 
       &.cz {
-        background-position: bottom 33% right 47.5%;
+        background-position: bottom 33% right 48%;
       }
+
       &.dk {
-        background-position: bottom 51% right 59%;
+        background-position: bottom 52% right 58%;
       }
+
+      &.nl {
+        background-position: bottom 39% right 69.5%;
+      }
+
       &.fi {
-        background-position: bottom 71.5% right 34%;
+        background-position: bottom 71.5% right 31%;
+      }
+
+      &.se {
+        background-position: bottom 65% right 46.5%;
       }
 
       .about__notification {

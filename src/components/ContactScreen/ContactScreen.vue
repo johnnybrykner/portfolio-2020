@@ -9,7 +9,7 @@
       growth. I cannot wait to see what the future has in store!
       <br />
       <em
-        >Are you able to offer such as position? Feel free to reach out on
+        >Are you able to offer such a position? Feel free to reach out on
         LinkedIn!</em
       >
     </p>
@@ -45,7 +45,7 @@ export default {
         {
           name: "linkedin.svg",
           handle: "My LinkedIn",
-          link: "https://www.linkedin.com/in/v%C3%ADt-brykner-55869414b",
+          link: "https://www.linkedin.com/in/v%C3%ADt-brykner/",
           className: "contact__linkedin",
         },
         {
