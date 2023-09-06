@@ -2,13 +2,16 @@
   <section class="contact">
     <h1>My journey has only begun...</h1>
     <p class="contact__text">
-      My 2022 will be in the name of tackling all of the challenges on the road
-      towards software engineering master's degree.
+      I am currently on a lookout for a company based in Sweden offering hybrid
+      full-time positions!
       <br />
       This is my next step on the infinite road of professional and personal
       growth. I cannot wait to see what the future has in store!
       <br />
-      <em>Is there anything on your mind? Feel free to reach out!</em>
+      <em
+        >Are you able to offer such as position? Feel free to reach out on
+        LinkedIn!</em
+      >
     </p>
     <div class="contact__media">
       <a
@@ -54,8 +57,7 @@ export default {
         {
           name: "resume.svg",
           handle: "My Resume",
-          link:
-            "https://drive.google.com/file/d/1haXwYGQQrCx3nsYdi6Tt9cuvi86BMqug/view?usp=sharing",
+          link: "https://drive.google.com/file/d/1haXwYGQQrCx3nsYdi6Tt9cuvi86BMqug/view?usp=sharing",
           className: "contact__resume",
         },
       ],
@@ -118,9 +120,11 @@ export default {
         @include when-screen-is(md) {
           margin-bottom: 1rem;
         }
+
         @include when-screen-is(lg) {
           height: 96px;
         }
+
         @include when-screen-is(xl) {
           height: 112px;
           margin-bottom: 1.5rem;
@@ -134,9 +138,11 @@ export default {
         @include when-screen-is(md) {
           font-size: 1.1rem;
         }
+
         @include when-screen-is(lg) {
           font-size: 1.25rem;
         }
+
         @include when-screen-is(xl) {
           font-size: 1.7rem;
         }
@@ -161,6 +167,7 @@ export default {
       flex-flow: row nowrap;
     }
   }
+
   @include when-screen-is(lg) {
     .contact__text {
       margin: 0 auto 3rem auto;
@@ -168,6 +175,7 @@ export default {
       line-height: 2rem;
     }
   }
+
   @include when-screen-is(xl) {
     .contact__text {
       padding: 3rem;
