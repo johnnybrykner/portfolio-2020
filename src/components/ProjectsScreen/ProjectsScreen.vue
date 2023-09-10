@@ -74,28 +74,23 @@ export default {
           technologies: [
             {
               image: "vue.png",
-              text:
-                "The stack revolves around Vue.js, a JavaScript framework encapsulating all HTML, CSS, and JavaScript",
+              text: "The stack revolves around Vue.js, a JavaScript framework encapsulating all HTML, CSS, and JavaScript",
             },
             {
               image: "nuxt.png",
-              text:
-                "Nuxt's main role in the project is that of a static site generator, allowing for an accessible and very performant frontend with small load times",
+              text: "Nuxt's main role in the project is that of a static site generator, allowing for an accessible and very performant frontend with small load times",
             },
             {
               image: "ts.png",
-              text:
-                "TypeScript is the main language used within the codebase, bringing type safety and JavaScript powers together",
+              text: "TypeScript is the main language used within the codebase, bringing type safety and JavaScript powers together",
             },
             {
               image: "vuetify.webp",
-              text:
-                "Vuetify is the UI framework of choice, offering Google's material design to the project through a plethora of UI components",
+              text: "Vuetify is the UI framework of choice, offering Google's material design to the project through a plethora of UI components",
             },
             {
               image: "jest.png",
-              text:
-                "The Bilka codebase is thoroughly tested with a vast suite of unit tests ensuring all the components' functionality",
+              text: "The Bilka codebase is thoroughly tested with a vast suite of unit tests ensuring all the components' functionality",
             },
           ],
           start: "Mar 2019",
@@ -105,7 +100,7 @@ export default {
           title: "feum-ticketing.dk",
           url: "https://feum-ticketing.dk",
           subtitle:
-            "New platform for a non-profit underground electronic music movement from Aarhus, Denmark.",
+            "New platform (currently down for domain reasons) for a non-profit underground electronic music movement from Aarhus, Denmark.",
           description:
             "FEUM's mission is to bring together electronic music fans from all over Denmark, and with the help of Aarhus municipality they organize culturally rich events. As my bachelor project I helped bring their new platform to life, which allows for online ticket presale and seamless content maintenance through a CMS.",
           logo: "feum.svg",
@@ -113,32 +108,61 @@ export default {
           technologies: [
             {
               image: "vue.png",
-              text:
-                "The stack revolves around Vue.js, a JavaScript framework encapsulating all HTML, CSS, and JavaScript",
+              text: "The stack revolves around Vue.js, a JavaScript framework encapsulating all HTML, CSS, and JavaScript",
             },
             {
               image: "gridsome.png",
-              text:
-                "On build Gridsome generates a static page for every view, which get dynamically hydrated when the browser loads them, making the frontend blazing fast and accessible",
+              text: "On build Gridsome generates a static page for every view, which get dynamically hydrated when the browser loads them, making the frontend blazing fast and accessible",
             },
             {
               image: "js.png",
-              text:
-                "The behavioral layer of the website is controlled by Vue through JavaScript",
+              text: "The behavioral layer of the website is controlled by Vue through JavaScript",
             },
             {
               image: "netlify-functions.svg",
-              text:
-                "The site's ticketing backend is serverless, and utilizes the Netlify-operated serverless functions to communicate with third party services and the database",
+              text: "The site's ticketing backend is serverless, and utilizes the Netlify-operated serverless functions to communicate with third party services and the database",
             },
             {
               image: "netlify-cms.svg",
-              text:
-                "Netlify CMS is headless, and allows the organization's members to manage the events' content easily without the need to alter any code",
+              text: "Netlify CMS is headless, and allows the organization's members to manage the events' content easily without the need to alter any code",
             },
           ],
           start: "Dec 2020",
-          end: "Now",
+          end: "Apr 2022",
+        },
+        {
+          title: "bedigi.io",
+          url: "https://www.bedigi.io",
+          subtitle:
+            "New brand website for a digital agency from Prague, Czech Republic.",
+          description:
+            "Bedigi has helped many fintech companies bring their digital concepts to life. To showcase the case studies of their clients, a new website was designed and with my help also developed and deployed.",
+          logo: "bedigi.svg",
+          color: "#46baa6",
+          technologies: [
+            {
+              image: "react.svg",
+              text: "The frontend is based on the React framework, which allows for a component-based approach to building the UI",
+            },
+            {
+              image: "nextjs.svg",
+              text: "Next.js statically generates the site, making it very performant and accessible while also improving the developer experience",
+            },
+            {
+              image: "ts.png",
+              text: "TypeScript is the main language used within the codebase, bringing type safety and JavaScript powers together",
+            },
+            {
+              image: "sass.png",
+              text: "The CSS of the codebase is stuctured in SCSS modules, corresponding to the React components",
+            },
+            {
+              image: "lambda.svg",
+              text: "The website's backend is serverless, handled by Next.js's API route feature",
+            },
+          ],
+          start: "Mar 2022",
+          end: "Mar 2023",
         },
       ],
     };
@@ -168,8 +192,9 @@ export default {
         return;
       }
       let percentages = [0.1];
-      let containerHeight = document.querySelector(".projects__container")
-        .clientHeight;
+      let containerHeight = document.querySelector(
+        ".projects__container"
+      ).clientHeight;
       let projects = document.querySelectorAll(".projects__project");
       projects.forEach((project, index) =>
         percentages.push(
@@ -225,6 +250,7 @@ export default {
             @include when-screen-is(lg) {
               height: 48px;
             }
+
             @include when-screen-is(xl) {
               height: 64px;
             }
@@ -279,10 +305,12 @@ export default {
               align-items: center;
               display: flex;
             }
+
             @include when-screen-is(lg) {
               margin: 0rem;
               padding: 2.25rem;
             }
+
             @include when-screen-is(xl) {
               padding: 3.75rem;
             }
@@ -305,11 +333,13 @@ export default {
                 margin-right: 1.5rem;
                 margin-bottom: 0;
               }
+
               @include when-screen-is(lg) {
                 margin-right: 2.25rem;
                 min-width: 96px;
                 height: 96px;
               }
+
               @include when-screen-is(lg) {
                 margin-right: 3.75rem;
                 min-width: 112px;
@@ -331,6 +361,7 @@ export default {
             grid-template-columns: 1fr 1fr;
             gap: 3.25rem;
           }
+
           @include when-screen-is(xl) {
             gap: 4.75rem;
           }
@@ -358,6 +389,7 @@ export default {
           padding: 0.75rem;
           font-size: 1.25rem;
         }
+
         @include when-screen-is(xl) {
           padding: 1.25rem;
           font-size: 1.7rem;
@@ -414,6 +446,7 @@ export default {
         @include when-screen-is(lg) {
           width: 6px;
         }
+
         @include when-screen-is(xl) {
           width: 8px;
         }
@@ -429,6 +462,7 @@ export default {
         padding-bottom: 8rem;
       }
     }
+
     @include when-screen-is(lg) {
       &:not(:last-of-type) {
         padding-bottom: 12rem;

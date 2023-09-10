@@ -57,7 +57,7 @@ export default {
         {
           name: "resume.svg",
           handle: "My Resume",
-          link: "https://drive.google.com/file/d/1haXwYGQQrCx3nsYdi6Tt9cuvi86BMqug/view?usp=sharing",
+          link: "https://drive.google.com/file/d/1PumqqiWh0uvjzcxDxj3rtDl28wxkTwpF/view",
           className: "contact__resume",
         },
       ],
