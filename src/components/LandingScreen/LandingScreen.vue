@@ -20,11 +20,12 @@ export default {
   data: () => {
     return {
       loves: [
-        "Web development",
+        "Software engineering",
         "Learning new technologies",
         "Clean and efficient code",
         "A good collective",
         "Electronic music",
+        "DJing",
         "Good headphones",
         "Driving a car",
         "Oldschool RuneScape",
@@ -43,7 +44,7 @@ export default {
           this.currentLove = 0;
         }
       }, 3000);
-    }, 750);
+    }, 600);
   },
 };
 </script>
@@ -68,9 +69,11 @@ export default {
     @include when-screen-is(md) {
       font-size: 1.5rem;
     }
+
     @include when-screen-is(lg) {
       font-size: 2rem;
     }
+
     @include when-screen-is(xl) {
       font-size: 3rem;
     }
@@ -85,9 +88,11 @@ export default {
     @include when-screen-is(md) {
       width: 400px;
     }
+
     @include when-screen-is(lg) {
       width: 550px;
     }
+
     @include when-screen-is(xl) {
       width: 850px;
     }
